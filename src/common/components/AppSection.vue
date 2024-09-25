@@ -1,6 +1,9 @@
 <script setup lang="ts">
 defineProps<{
     title: string,
+    bakgroundImage?: string,
+    backgroundVideo?: string,
+    fluid?: boolean,
     dark?: boolean
 }>()
 </script>

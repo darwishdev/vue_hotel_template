@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import Section from '../components/Section.vue';
-import { ref } from 'vue';
+import AppSection from '@/common/components/AppSection.vue';
 import { useGlobalStore } from '@/common/stores/global';
 import Banner from '../components/Banner.vue';
 import Map from '../components/Map.vue';
@@ -9,34 +8,10 @@ import Amenities from '../components/Amenities.vue';
 import Slider from '../components/partials/Slider.vue';
 import RoomTypes from '../components/RoomTypes.vue';
 const globalStore = useGlobalStore()
-
-const responsiveOptions = ref([
-	{
-		breakpoint: '1400px',
-		numVisible: 2,
-		numScroll: 1
-	},
-	{
-		breakpoint: '1199px',
-		numVisible: 3,
-		numScroll: 1
-	},
-	{
-		breakpoint: '767px',
-		numVisible: 2,
-		numScroll: 1
-	},
-	{
-		breakpoint: '575px',
-		numVisible: 1,
-		numScroll: 1
-	}
-]);
 await globalStore.websiteFind()
 
 </script>
 <template>
-	<!-- <h2>la</h2> -->
 	<section class="video-banner ">
 		<div class="container">
 
@@ -63,12 +38,12 @@ await globalStore.websiteFind()
 
 	</section>
 
-	<Section :title="`About`" dark>
+	<AppSection :title="`About`" dark>
 		<Slider></Slider>
 		<div class="separator my-5"></div>
 		<h3 class="text-center text-base md:text-lg px-1 md:px-5 md:py-3 reveal">{{
 			globalStore.websiteFindResponse.property.propertyDescription }}</h3>
-	</Section>
+	</AppSection>
 	<Banner class bannerImage="https://www.rhactushotel.com/images/uploads/2022319588257.jpg">
 		<div class="container">
 			<div class="text-white w-full">
@@ -88,9 +63,9 @@ await globalStore.websiteFind()
 
 		<Amenities></Amenities>
 	</div>
-	<Section title="Room Types">
+	<AppSection title="Room Types">
 		<RoomTypes></RoomTypes>
-	</Section>
+	</AppSection>
 	<Banner class bannerImage="/IMG_3583.webp">
 		<div class="container">
 			<div class="text-white w-full px-4">
@@ -105,9 +80,9 @@ await globalStore.websiteFind()
 			</div>
 		</div>
 	</Banner>
-	<Section title="Our Location">
+	<AppSection title="Our Location">
 		<Map class="w-full"></Map>
-	</Section>
+	</AppSection>
 </template>
 
 <style lang="scss">
