@@ -57,7 +57,7 @@ await globalStore.websiteFind()
 
 		</div>
 	</Banner>
-	<div class="py-8 px-8 darker">
+	<div id="amenities" class="py-8 px-8 darker">
 		<h2 class="reveal">Amenities</h2>
 		<hr class="short">
 

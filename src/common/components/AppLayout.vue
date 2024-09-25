@@ -3,6 +3,7 @@ import db from '@/common/db/db';
 import apiClient from '@/common/api/ApiClient';
 import { ThemeDefaults } from '../db/types';
 import Loading from './Loading.vue';
+import MobSidebar from './MobSidebar.vue';
 const initIcons = (): Promise<void> => {
 	return new Promise((resolve) => {
 		db.icons.count().then(count => {
@@ -87,8 +88,8 @@ const toggleMenu = () => {
 
 					<app-icon icon="menu" :click="toggleMenu" class="hide-desktop"></app-icon>
 				</div>
-				<Drawer v-model:visible="isMenuOpenedRef" position="right" :header="$t('menu')">
-					<AppNav />
+				<Drawer v-model:visible="isMenuOpenedRef" position="right" header="Rhactus Hotel">
+					<MobSidebar @clicked="isMenuOpenedRef = false" />
 				</Drawer>
 
 
@@ -117,6 +118,7 @@ const toggleMenu = () => {
 	<AppFooter />
 </template>
 <style lang="scss">
+
 .top-bar {
 
 
