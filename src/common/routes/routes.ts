@@ -17,7 +17,20 @@ const router = createRouter({
 			redirect:'/landing',
 			children: appRoutes
 		},
-	]
+	],
+	scrollBehavior(to, from, savedPosition) {
+		if (to.hash) {
+		  // If the route has a hash, scroll to the element with that id
+		  return {
+			el: to.hash,
+			behavior: 'smooth'
+		  };
+		} else if (savedPosition) {
+		  return savedPosition; // Return to previous scroll position
+		} else {
+		  return { top: 0 }; // Default scroll to top
+		}
+	  }	
 })
 // navigation guards
 

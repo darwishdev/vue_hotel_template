@@ -63,7 +63,7 @@ await globalStore.websiteFind()
 
 	</section>
 
-	<Section :title="`About`" dark>
+	<Section id="about" :title="`About`" dark>
 		<Slider></Slider>
 		<div class="separator my-5"></div>
 		<h3 class="text-center text-base md:text-lg px-1 md:px-5 md:py-3 reveal">{{
@@ -82,13 +82,13 @@ await globalStore.websiteFind()
 
 		</div>
 	</Banner>
-	<div class="py-8 px-8 darker">
+	<div id="amenities" class="py-8 px-8 darker">
 		<h2 class="reveal">Amenities</h2>
 		<hr class="short">
 
 		<Amenities></Amenities>
 	</div>
-	<Section title="Room Types">
+	<Section id="rooms" title="Room Types">
 		<RoomTypes></RoomTypes>
 	</Section>
 	<Banner class bannerImage="/IMG_3583.webp">
@@ -105,7 +105,7 @@ await globalStore.websiteFind()
 			</div>
 		</div>
 	</Banner>
-	<Section title="Our Location">
+	<Section id="location" title="Our Location">
 		<Map class="w-full"></Map>
 	</Section>
 </template>
