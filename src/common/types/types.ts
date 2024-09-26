@@ -44,9 +44,11 @@ export type WebsiteFindResponse = {
     }
     sliderImages?: string[]
     bannerVideo?: string
+    bannerHeadline?: string
+    bannerSlogan?: string
+    bannerText?: string
     sliderSlogan?: string
     aboutImages?: string[]
-    bannerSlogan?: string
     nearbyLocations?: {
       locationName: string
       distanceFromProperty: string
@@ -62,7 +64,7 @@ export type WebsiteFindResponse = {
       article: string
       images: string[]
     }
-    footerParagrapgh: string
+    footerParagraph: string
   }
   property: PropertyFindFilteredResponse
 }

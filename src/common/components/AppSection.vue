@@ -10,7 +10,7 @@ defineProps<{
 
 <template>
     <div class="py-8" :class="{ 'darker': dark }">
-        <div class="container">
+        <div class="wrapper">
             <h2 class="reveal">{{ title }}</h2>
             <hr class="short">
             <slot></slot>

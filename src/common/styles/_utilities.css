@@ -1,0 +1,66 @@
+.ltr {
+    direction: ltr;
+}
+
+.wrapper {
+    width: min(var(--p-content-max-width), 100% - (var(--p-content-inline-spacing) / 2));
+    margin-inline: auto;
+}
+
+@media (max-width : 1025px) {
+    .show-desktop {
+        display: none;
+    }
+}
+
+@media (min-width : 1025px) {
+    .hide-desktop {
+        display: none;
+    }
+}
+
+.glass {
+    backdrop-filter: blur(8px);
+    background-color: var(--p-glass);
+
+}
+
+
+#app {
+    scroll-timeline-name: --foo, --bar;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden scroll;
+}
+
+
+.button {
+    background: red;
+    padding: 1rem 2rem;
+    border-radius: var(--p-border-radius-lg);
+}
+
+
+.progress-bar {
+    position: fixed;
+    height: 3px;
+    z-index: 100;
+    background-color: var(--p-primary-color);
+    animation: progress linear forwards;
+    animation-timeline: scroll();
+}
+
+.app-btn {
+    border: 1px solid var(--p-primary-color);
+    padding: var(--p-button-padding);
+    border-radius: var(--p-border-radius-lg);
+
+    &.primary {
+        background-color: var(--p-primary-color);
+    }
+
+    i,
+    .app-icon {
+        margin-right: var(--p-inline-spacing-sm);
+    }
+}

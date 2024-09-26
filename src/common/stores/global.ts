@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import apiClient from '../api/ApiClient'
 import { WebsiteFindResponse } from '../types/types'
@@ -18,24 +18,33 @@ export const useGlobalStore = defineStore('global', () => {
             });
         })
     }
+    function scrollToSection(sectionId: string) {
+        const section = document.querySelector(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
 
     const setWebsiteDetails = () => {
         websiteFindResponse.value!.website = {
             logo: '/rhactus-logo.png',
-            email: 'kareem@rhactushotel.com',
+            email: 'info@rhactushotel.com',
             socialLinks: {
                 facebook: 'https://www.facebook.com/rhactushotelnewalamein',
                 instagram: 'https://www.instagram.com/rhactushotelnewalamein/?hl=en',
                 tripadvisor: 'https://www.tripadvisor.com/Hotel_Review-g19980881-d23541968-Reviews-Rhactus_Hotel_New_Alamein-Marina_El_Alamein_Matrouh_Governorate.html'
             },
-            footerParagrapgh: 'Rhactus San Stefano offers a perfect blend of luxury, comfort, and convenience in the heart of Alexandria. Experience exceptional hospitality, breathtaking views, and premium amenities for an unforgettable stay by the sea.',
+            footerParagraph: 'Rhactus San Stefano offers a perfect blend of luxury, comfort, and convenience in the heart of Alexandria. Experience exceptional hospitality, breathtaking views, and premium amenities for an unforgettable stay by the sea.',
             phone: '+201050555955',
             propertyDiscoverMore: {
                 article: `Nestled in the vibrant San Stefano district of Alexandria, Rhactus Hotel offers a unique blend of modern luxury and rich cultural heritage. Designed to provide guests with a truly memorable experience, Rhactus combines world-class amenities with stunning views of the Mediterranean. Whether you're looking to unwind in our elegantly furnished rooms or explore the nearby attractions, Rhactus offers something for every traveler. <br> <br>
             Our hotel is more than just a place to stay; it’s an escape from the ordinary. From fine dining at our exclusive restaurants to relaxing by the pool or enjoying a stroll along the seafront, Rhactus ensures every moment of your stay is filled with comfort and pleasure. Discover the charm of Alexandria from the heart of one of its most iconic neighborhoods, and let Rhactus be your gateway to an unforgettable journey.`,
                 images: ['/property-img1.jpg', '/property-img2.jpg']
             },
-            bannerVideo : '/alex2.webm',
+            bannerVideo: '/alex2.webm',
+            bannerHeadline: 'Escape to Luxury',
+            bannerText: 'Discover a world where comfort meets elegance. At Rhactus San Hotel, we offer you  unforgettable experience with luxurious rooms, stunning views, and service   Whether you\'re here for relaxation or adventure, we ensure that every moment  your stay is pure bliss.',
             sliderSlogan: 'Rhactus San Stefano – Where Luxury Meets the Mediterranean.',
             bannerSlogan: 'Experience Comfort, Embrace Elegance',
             partners: [
@@ -52,8 +61,8 @@ export const useGlobalStore = defineStore('global', () => {
     }
 
 
-	return {
-		websiteFind , websiteFindResponse
-	}
+    return {
+        websiteFind, websiteFindResponse, scrollToSection
+    }
 })
 

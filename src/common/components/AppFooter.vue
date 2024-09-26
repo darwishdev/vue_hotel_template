@@ -1,21 +1,18 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
 import AppNav from './AppNav.vue';
-// Store contact information in a Vue object
-const contact = ref({
-	phone: '1234567890',
-	email: 'company@email.com',
-	location: '100 Smart Street, LA, USA'
-});
+import { useGlobalStore } from '../stores/global';
+const globalStore = useGlobalStore()
+const { logo, email, phone, footerParagraph } = globalStore.websiteFindResponse.website
+const { addressLine } = globalStore.websiteFindResponse.property
 </script>
 <template>
 	<footer class="app-footer darker">
-		<div class="container pt-8">
+		<div class="wrapper">
 			<div class="show-desktop mb-4">
 				<div class="grid">
 					<div class="logo">
-						<app-image src="images/logo.webp" />
-						<p v-t="'about_us_footer'" class="mt-6" />
+						<app-image :src="logo" />
+						<p v-t="footerParagraph" class="mt-6" />
 					</div>
 					<div class="nav">
 						<h3 v-t="'comppany'" class="mb-4" />
@@ -24,13 +21,14 @@ const contact = ref({
 					<div class="contact">
 						<h3 v-t="'contacts'" class="mb-4" />
 						<p>
-							<span v-t="'phone'"></span>: {{ contact.phone }}
+							<span v-t="'phone'"></span>: {{ phone }}
 						</p>
 						<p>
-							<span v-t="'email'"></span>: {{ contact.email }}
+							<span v-t="'email'"></span>: {{ email }}
 						</p>
 						<p>
-							<span v-t="'location'"></span>: {{ contact.location }}
+							<span v-t="'location'"></span>: {{
+								addressLine }}
 						</p>
 					</div>
 
@@ -42,6 +40,12 @@ const contact = ref({
 </template>
 <style lang="scss">
 .app-footer {
+
+	.container {
+		@media(min-width: 1025px) {
+			padding-top: 5rem;
+		}
+	}
 
 	.copyright {
 		padding-block: 1rem;

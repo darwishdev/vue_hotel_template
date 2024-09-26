@@ -1,42 +1,61 @@
 <script setup lang="ts">
-import Button from 'primevue/button';
 const items = [
     {
         label: 'about',
-        to: '#'
+        to: '#about'
     },
     {
         label: 'amenities',
-        to: '#'
+        to: '#amenities'
     },
     {
         label: 'types',
-        to: '#'
+        to: '#rooms'
     },
     {
         label: 'location',
-        to: '#'
+        to: '#location'
     },
     {
         label: 'contact',
-        to: '#'
+        to: '#contact'
     },
 ];
+
 </script>
 
 <template>
     <nav class="navigation-links">
-        <Button v-for="(item, index) in items" :key="index" :label="$t(item.label)" plain text />
+        <ul>
+            <li v-for="(item, index) in items" :key="index">
+                <a :href="item.to">
+                    {{ $t(item.label) }}
+                </a>
+            </li>
+        </ul>
     </nav>
 </template>
-<style lang="scss">
+<style>
 .navigation-links {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
 
-    @media (min-width: 1025px) {
-        flex-direction: row;
+        gap: var(--p-small-gap);
+
+        @media (min-width: 1025px) {
+            flex-direction: row;
+        }
+
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        @media (min-width: 1025px) {
+            flex-direction: row;
+        }
+
     }
 }
 </style>

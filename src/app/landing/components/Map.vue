@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { useGlobalStore } from '@/common/stores/global';
 const globalStore = useGlobalStore()
+const baseUrl = import.meta.env.VITE_MAP_BASE_URL
 </script>
 
 <template>
     <div>
-        <iframe :src="globalStore.websiteFindResponse.property.iframeUrl" height="480" style="border:0;" allowfullscreen
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe :src="`${baseUrl}${globalStore.websiteFindResponse.property.iframeUrl}`" height="480" style="border:0;"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </template>
 

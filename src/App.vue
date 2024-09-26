@@ -4,7 +4,7 @@ import DynamicDialog from 'primevue/dynamicdialog';
 </script>
 
 <template>
-	<div id=progress></div>
+	<div class="progress-bar"></div>
 	<RouterView v-slot="{ Component }">
 		<template v-if="Component">
 			<KeepAlive>

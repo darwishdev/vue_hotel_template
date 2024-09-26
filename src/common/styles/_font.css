@@ -1,0 +1,64 @@
+/* font.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+    --font-family: 'Montserrat', sans-serif;
+
+    /* Font sizes */
+    --font-size-big-title: 3rem;
+    /* Big title (e.g., 48px) */
+    --font-size-title: 2rem;
+    /* Title (e.g., 32px) */
+    --font-size-text: 1rem;
+    /* Regular text (e.g., 16px) */
+
+    /* Line heights */
+    --line-height-big-title: 1.2;
+    --line-height-title: 1.4;
+    --line-height-text: 1.6;
+
+    /* Font weights */
+    --font-weight-normal: 400;
+    /* Regular weight */
+    --font-weight-bold: 700;
+    /* Bold weight */
+}
+
+/* Apply the base font family and text styles to the body */
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-text);
+    /* Default font size is text */
+    line-height: var(--line-height-text);
+    font-weight: var(--font-weight-normal);
+    margin: 0;
+    padding: 0;
+}
+
+/* Big Title */
+h1,
+.big-title {
+    font-size: var(--font-size-big-title);
+    line-height: var(--line-height-big-title);
+    font-weight: var(--font-weight-bold);
+    /* Big titles are bold */
+}
+
+/* Title */
+h2,
+.title {
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-title);
+    font-weight: var(--font-weight-bold);
+    /* Titles are bold */
+}
+
+/* Text */
+p,
+span,
+qoute .text {
+    font-size: var(--font-size-text);
+    line-height: var(--line-height-text);
+    font-weight: var(--font-weight-normal);
+    /* Normal weight for text */
+}

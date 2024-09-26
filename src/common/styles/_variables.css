@@ -1,0 +1,29 @@
+:root {
+    /* container configuration */
+    --p-content-max-width: 1160px;
+    --p-content-inline-spacing: 3rem;
+    /* navigation bar fixed height configuration */
+    --top-bar-height: 5rem;
+    --p-small-gap: 1.25rem;
+    --p-large-gap: 1.5rem;
+    --p-glass: hsla(0, 0%, 100%, .7);
+    --p-button-padding: .5rem 1rem;
+    --p-color-background: #fff;
+    --p-color-background-70: #ffffff70;
+    --p-color-background-50: #ffffff50;
+    --p-color-background-30: #ffffff30;
+    --p-color-background-darker: #ede4df;
+    --p-secondary-color: #0E3845;
+    --p-inline-spacing-sm: .5rem;
+    --swiper-pagination-color: var(--p-secondary-color)
+}
+
+.my-app-dark {
+    --p-color-background: #2d2824;
+    --p-color-background-darker: #11100e;
+    --p-secondary-color: #fba40c;
+    --p-glass: rgba(0, 0, 0, .3);
+    --p-color-background-70: #2d282470;
+    --p-color-background-50: #2d282450;
+    --p-color-background-30: #2d282430;
+}

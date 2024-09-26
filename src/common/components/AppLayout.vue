@@ -76,7 +76,7 @@ const toggleMenu = () => {
 
 
 	<div class="top-bar glass">
-		<div class="container">
+		<div class="wrapper">
 
 			<div class="navigation">
 				<!-- <app-image src="images/logo.webp" /> -->
@@ -115,10 +115,8 @@ const toggleMenu = () => {
 			</KeepAlive>
 		</template>
 	</RouterView>
-	<AppFooter />
 </template>
 <style lang="scss">
-
 .top-bar {
 
 

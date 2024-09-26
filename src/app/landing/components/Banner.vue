@@ -22,6 +22,10 @@ const opacity = ref(props.overlayOpacity && props.overlayOpacity > 0 && props.ov
 
 <style>
 @keyframes scale {
+    from {
+        background-size: 100%;
+    }
+
     to {
         background-size: 150%
     }

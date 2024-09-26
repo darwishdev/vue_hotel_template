@@ -4,18 +4,18 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import PrimeVue from 'primevue/config';
 import router from './common/routes/routes'
 import { config } from './common/primevue/primevue'
-import '@/common/styles/styles.scss'
+import '@/common/styles/styles.css'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 import AppIcon from './common/components/AppIcon.vue';
 import AppImage from './common/components/AppImage.vue';
 import 'primeicons/primeicons.css'
+import Button from 'primevue/button';
 import i18n from './common/i18n/i18n'
 import DialogService from 'primevue/dialogservice';
 const app = createApp(App)
 const pinia = createPinia()
-app.use(PrimeVue, config).use(DialogService).use(router).use(VueAwesomeSwiper).use(i18n).use(pinia).component('app-icon', AppIcon).component('app-image', AppImage)
-
+app.use(PrimeVue, config).use(DialogService).use(router).use(VueAwesomeSwiper).use(i18n).use(pinia).component('app-icon', AppIcon).component('app-image', AppImage).component('Button', Button)
 // navigation guards
 app.mount('#app')
 

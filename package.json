@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
+    "update": "npm update @buf/ahmeddarwish_abc-api.connectrpc_es",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview"
   },
