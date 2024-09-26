@@ -10,6 +10,8 @@ import Amenities from '../components/Amenities.vue';
 import Slider from '../components/partials/Slider.vue';
 import RoomTypes from '../components/RoomTypes.vue';
 import VideoBanner from '../components/VideoBanner.vue';
+import AppImage from '@/common/components/AppImage.vue';
+import Discover from '../components/Discover.vue';
 const globalStore = useGlobalStore()
 await globalStore.websiteFind()
 
@@ -36,7 +38,7 @@ await globalStore.websiteFind()
 
 		</div>
 	</Banner>
-	<div id="amenities" class="py-8 px-8 darker">
+	<div id="amenities" class="py-8 px-5 md:px-8 darker">
 		<h2 class="reveal">Amenities</h2>
 		<hr class="short">
 
@@ -65,10 +67,22 @@ await globalStore.websiteFind()
 	<AppSection id="contact" title="Get In Touch">
 		<Contact />
 	</AppSection>
+	<AppSection id="discover_more" title="Discover More About Rhactus">
+		<Discover></Discover>
+	</AppSection>
 	<AppFooter />
 </template>
 
 <style lang="scss">
+.discover-more-section span{
+	display: flex;
+	height: 160px;
+}
+.discover-more-section img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 .separator {
 	margin: auto;
 	height: 2px;
