@@ -75,7 +75,8 @@ const toggleMenu = () => {
 <template>
 
 
-	<div class="top-bar glass">
+	<header class="top-bar glass">
+		<div class="progress-bar"></div>
 		<div class="wrapper">
 
 			<div class="navigation">
@@ -97,7 +98,7 @@ const toggleMenu = () => {
 
 		</div>
 
-	</div>
+	</header>
 	<RouterView v-slot="{ Component }">
 		<template v-if="Component">
 			<KeepAlive>
@@ -116,42 +117,3 @@ const toggleMenu = () => {
 		</template>
 	</RouterView>
 </template>
-<style lang="scss">
-.top-bar {
-
-
-	overflow: hidden;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	height: var(--top-bar-height);
-	z-index: 99;
-	transition: all .3s ease-in-out;
-	overflow: hidden;
-	position: -webkit-sticky;
-	position: -moz-sticky;
-	position: -ms-sticky;
-	position: -o-sticky;
-	border-bottom: 1px solid var(--border-color);
-
-}
-
-.navigation {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: var(--top-bar-height);
-
-	& .icons {
-		display: flex;
-		align-items: center;
-		background-color: var('--p-content-background');
-		border: 1px solid var(--p-menubar-border-color);
-		padding: 1rem;
-		gap: 1rem;
-		border-radius: var(--p-menubar-border-radius);
-		background: var(--p-color-glass);
-		border-radius: 3rem;
-	}
-}
-</style>

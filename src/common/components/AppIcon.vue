@@ -30,3 +30,8 @@ const attrs = useAttrs()
 	</Suspense>
 
 </template>
+<style>
+.app-icon {
+	fill: var(--p-text-color)
+}
+</style>

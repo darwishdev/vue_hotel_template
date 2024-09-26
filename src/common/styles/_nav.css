@@ -1,0 +1,54 @@
+header {
+    --_animationStartsAfter: 50vh;
+    --_animationDistance: 500px;
+    --_surfaceColorStart: hsl(0 10% 5%);
+    --_surfaceColorEnd: hsl(0 50% 90% / 0.1);
+    --_textColorStart: hsl(0 10% 90%);
+    --_textColorEnd: hsl(0 10% 90%);
+
+    --_logoAfterAnimation: none;
+
+
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: var(--top-bar-height);
+    border-radius: 0;
+    z-index: 99;
+    transition: all .3s ease-in-out;
+    overflow: hidden;
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    border-bottom: 1px solid var(--border-color);
+
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: var(--top-bar-height);
+
+        & .icons {
+            display: flex;
+            align-items: center;
+            background-color: var('--p-content-background');
+            border: 1px solid var(--p-menubar-border-color);
+            padding: 1rem;
+            gap: 1rem;
+            border-radius: var(--p-menubar-border-radius);
+            background: var(--p-color-glass);
+            border-radius: 3rem;
+        }
+    }
+
+    @supports (animation-timeline: view()) {
+        backdrop-filter: blur(0.35rem);
+        margin: 0 auto;
+        animation: stickyNav linear forwards;
+        animation-timeline: view();
+        animation-range-start: calc(100vh + var(--_animationStartsAfter));
+        animation-range-end: calc(100vh + var(--_animationStartsAfter) + var(--_animationDistance));
+    }
+}

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppSection from '@/common/components/AppSection.vue';
 import { useGlobalStore } from '@/common/stores/global';
+import Contact from '../components/Contact.vue';
 import Banner from '../components/Banner.vue';
 import AppFooter from '@/common/components/AppFooter.vue';
 import Map from '../components/Map.vue';
@@ -61,8 +62,8 @@ await globalStore.websiteFind()
 	<AppSection id="location" title="Our Location">
 		<Map class="w-full"></Map>
 	</AppSection>
-	<AppSection id="contact" title="Our Location">
-		<Map class="w-full"></Map>
+	<AppSection id="contact" title="Get In Touch">
+		<Contact />
 	</AppSection>
 	<AppFooter />
 </template>

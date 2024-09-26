@@ -25,24 +25,8 @@
 
 }
 
-
-#app {
-    scroll-timeline-name: --foo, --bar;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden scroll;
-}
-
-
-.button {
-    background: red;
-    padding: 1rem 2rem;
-    border-radius: var(--p-border-radius-lg);
-}
-
-
 .progress-bar {
-    position: fixed;
+    position: sticky;
     height: 3px;
     z-index: 100;
     background-color: var(--p-primary-color);
@@ -50,17 +34,28 @@
     animation-timeline: scroll();
 }
 
-.app-btn {
-    border: 1px solid var(--p-primary-color);
-    padding: var(--p-button-padding);
-    border-radius: var(--p-border-radius-lg);
+.darker {
+    background-color: var(--p-color-background-darker);
+}
 
-    &.primary {
-        background-color: var(--p-primary-color);
+.flex-mobile-column {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: var(--p-small-gap);
+
+    @media (min-width: 1025px) {
+        flex-direction: row;
     }
 
-    i,
-    .app-icon {
-        margin-right: var(--p-inline-spacing-sm);
-    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--p-small-gap);
+}
+
+.flex-column {
+    flex-direction: column !important;
 }

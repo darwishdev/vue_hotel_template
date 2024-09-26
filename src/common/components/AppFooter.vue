@@ -47,6 +47,10 @@ const { addressLine } = globalStore.websiteFindResponse.property
 		}
 	}
 
+	.app-nav {
+		flex-direction: column;
+	}
+
 	.copyright {
 		padding-block: 1rem;
 	}

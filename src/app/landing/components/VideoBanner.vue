@@ -12,6 +12,7 @@ const { bannerVideo, bannerHeadline, bannerText, bannerSlogan } = globalStore.we
                 <h4> {{ bannerSlogan }}</h4>
                 <p>{{ bannerText }}</p>
                 <div class="actions">
+
                     <a class="app-btn primary" href="#contact">
                         <i class="pi pi-phone" />
                         {{ $t('contact') }}
@@ -50,7 +51,6 @@ const { bannerVideo, bannerHeadline, bannerText, bannerSlogan } = globalStore.we
     padding: 8rem 2rem;
     min-height: 20rem;
     position: relative;
-
 
     video {
         min-height: 100%;
@@ -105,7 +105,7 @@ const { bannerVideo, bannerHeadline, bannerText, bannerSlogan } = globalStore.we
     width: 100%;
     height: 15vh;
     margin-bottom: -7px;
-    /*Fix for safari gap*/
+    z-index: -1;
     min-height: 100px;
     background: transparent;
     max-height: 150px;
@@ -151,9 +151,7 @@ const { bannerVideo, bannerHeadline, bannerText, bannerSlogan } = globalStore.we
     .waves {
         height: 40px;
         min-height: 40px;
-    }
-
-    .content {
+    } .content {
         height: 30vh;
     }
 

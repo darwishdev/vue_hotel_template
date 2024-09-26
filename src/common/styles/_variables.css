@@ -1,7 +1,8 @@
 :root {
     /* container configuration */
     --p-content-max-width: 1160px;
-    --p-content-inline-spacing: 3rem;
+    --p-content-inline-spacing: 15rem;
+    --p-animation-up-spacing: 100px;
     /* navigation bar fixed height configuration */
     --top-bar-height: 5rem;
     --p-small-gap: 1.25rem;

@@ -7,3 +7,57 @@
         width: 100%;
     }
 }
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+
+    }
+
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translate(-10%, 10%);
+
+    }
+
+    to {
+        transform: translate(0, 0);
+        opacity: 1
+    }
+}
+
+
+@keyframes stickyNav {
+
+    0%,
+    100% {
+        --_headerWidth: fit-content;
+        --_logoDisplay: var(--_logoAfterAnimation);
+    }
+
+    100% {
+        top: 1rem;
+        width: 80%;
+        border-radius: 100vw;
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(var(--p-animation-up-spacing))
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}

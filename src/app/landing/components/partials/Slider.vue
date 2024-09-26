@@ -44,18 +44,8 @@ const modules = [Autoplay, Keyboard, EffectCoverflow, Pagination]
   max-height: 270px;
 }
 
-@keyframes slide-in {
-  100% {
-    transform: translate(0, 0);
-    opacity: 1
-  }
-}
-
-
 .slide-innn {
   direction: ltr;
-  opacity: 0;
-  transform: translate(-10%, 10%);
   animation: slide-in linear forwards;
   animation-timeline: view() !important;
   position: relative;
