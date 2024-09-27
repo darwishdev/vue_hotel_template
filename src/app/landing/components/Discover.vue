@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import AppImage from '@/common/components/AppImage.vue';
 import { useGlobalStore } from '@/common/stores/global';
+import observer from '@/common/utilites/animation';
+import { onMounted, ref } from 'vue';
 
 const globalStore = useGlobalStore()
 const { article, images } = globalStore.websiteFindResponse.website.propertyDiscoverMore  
+const discoverContainer = ref()
+
+onMounted(() => {
+    observer.observe(discoverContainer.value)
+})
 </script>
 
 <template>
-    <article class="grid gap-2">
+    <article ref="discoverContainer" class="discover-container grid gap-2">
         <div class="col-12 md:col-6 text-justify">
             <p class="mb-3">{{ article }} </p>
         </div>
@@ -44,7 +51,16 @@ const { article, images } = globalStore.websiteFindResponse.website.propertyDisc
 }
 
 article img {
-    animation: fade-up;
-    animation-timeline: view();
+    @supports (animation-timeline: view()){
+        animation: fade-up;
+        animation-timeline: view();
+    }
 }
+
+@supports not (animation-timeline: view()){
+    .animating.discover-container{
+        -webkit-animation: fade-up 2.5s ease-in-out;
+    }
+}
+
 </style>

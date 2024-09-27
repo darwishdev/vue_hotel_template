@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useGlobalStore } from '@/common/stores/global';
+import observer from '@/common/utilites/animation';
 import { onMounted, ref } from 'vue';
 const globalStore = useGlobalStore()
 const videoElementRef = ref()
@@ -8,6 +9,7 @@ onMounted(() => {
     setTimeout(() => {
         videoElementRef.value.play()
     }, 100)
+    observer.observe(videoElementRef.value!)
 })
 </script>
 
@@ -30,8 +32,8 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <video ref="videoElementRef" width="100%" class="header-video-animation animate-on-scroll" height="auto"
-            preload="auto" muted loop>
+        <video ref="videoElementRef" width="100%" class="v-scale animate-on-scroll" height="auto"
+            preload="auto" muted loop playsinline autobuffer>
             <source :src="bannerVideo" type="video/webm">
         </video>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -50,7 +52,33 @@ onMounted(() => {
 
 
 </template>
-<style>
+<style lang="scss">
+
+@keyframes v-scaling {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+        transform: scale(3);
+    }
+
+    25% {
+        opacity: .5;
+    }
+
+    85%,
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@supports not (animation-timeline: view()){
+    .v-scale.animating {
+        -webkit-animation: v-scaling 4s ease-in-out .3s;
+    }
+}
+
 .video-banner {
     height: 80vh;
     display: flex;

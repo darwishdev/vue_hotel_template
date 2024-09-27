@@ -11,13 +11,21 @@ import RoomTypes from '../components/RoomTypes.vue';
 import VideoBanner from '../components/VideoBanner.vue';
 import Discover from '../components/Discover.vue';
 import Amenity from '../components/partials/Amenity.vue';
+import { onMounted, ref } from 'vue';
+import observer from '@/common/utilites/animation';
 const globalStore = useGlobalStore()
+const aboutSectionRef = ref()
 const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmenitiesTitle } = globalStore.websiteFindResponse.website
 
+onMounted(() => {
+	setTimeout(() => {
+		console.log(aboutSectionRef.value);
+	}, 400);
+})
 </script>
 <template>
 	<VideoBanner />
-	<AppSection id="about" :title="`About`">
+	<AppSection ref="aboutSectionRef" class="about-section" id="about" :title="`About`">
 
 		<Slider></Slider>
 		<div class="separator my-5"></div>
