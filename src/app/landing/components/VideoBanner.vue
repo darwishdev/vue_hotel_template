@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { useGlobalStore } from '@/common/stores/global';
+import { onMounted, ref } from 'vue';
 const globalStore = useGlobalStore()
+const videoElementRef = ref()
 const { bannerVideo, bannerHeadline, bannerText, bannerSlogan } = globalStore.websiteFindResponse.website
+onMounted(() => {
+    setTimeout(() => {
+        videoElementRef.value.play()
+    }, 100)
+})
 </script>
 
 <template>
@@ -17,13 +24,14 @@ const { bannerVideo, bannerHeadline, bannerText, bannerSlogan } = globalStore.we
                         <i class="pi pi-phone" />
                         {{ $t('contact') }}
                     </a>
-                    <a class="app-btn" href="#rooms">
+                    <a class="app-btn outline" href="#rooms">
                         <i class="pi pi-key" />
                         {{ $t('units') }}</a>
                 </div>
             </div>
         </div>
-        <video width="100%" height="auto" preload="auto" autoplay muted loop>
+        <video ref="videoElementRef" width="100%" class="header-video-animation animate-on-scroll" height="auto"
+            preload="auto" muted loop>
             <source :src="bannerVideo" type="video/webm">
         </video>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -48,19 +56,23 @@ const { bannerVideo, bannerHeadline, bannerText, bannerSlogan } = globalStore.we
     display: flex;
     justify-content: center;
     align-items: end;
-    padding: 8rem 2rem;
+    padding: 4rem 0rem;
     min-height: 20rem;
     position: relative;
+
 
     video {
         min-height: 100%;
         object-fit: cover;
-        animation: header-video-animation linear forwards;
-        animation-timeline: view();
-        animation-range: exit;
+
+        @supports (animation-timeline: view()) {
+            animation: header-video-animation linear forwards;
+            animation-timeline: view();
+            animation-range: exit;
+        }
+
         inset: 0;
         transform-origin: bottom;
-
         position: absolute;
         opacity: .8;
         top: 0;
@@ -73,7 +85,7 @@ const { bannerVideo, bannerHeadline, bannerText, bannerSlogan } = globalStore.we
     .banner-content {
         animation: fade-out linear;
         animation-timeline: view();
-        animation-range: exit -24rem;
+        animation-range: exit -2rem;
         z-index: 2;
 
         & h1,
@@ -136,22 +148,14 @@ const { bannerVideo, bannerHeadline, bannerText, bannerSlogan } = globalStore.we
     animation-duration: 20s;
 }
 
-@keyframes move-forever {
-    0% {
-        transform: translate3d(-90px, 0, 0);
-    }
-
-    100% {
-        transform: translate3d(85px, 0, 0);
-    }
-}
-
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
     .waves {
         height: 40px;
         min-height: 40px;
-    } .content {
+    }
+
+    .content {
         height: 30vh;
     }
 

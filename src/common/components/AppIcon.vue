@@ -31,7 +31,7 @@ const attrs = useAttrs()
 
 </template>
 <style>
-.app-icon {
-	fill: var(--p-text-color)
+.app-icon.app-icon {
+	fill: var(--p-text-color) !important;
 }
 </style>

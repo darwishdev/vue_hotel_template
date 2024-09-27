@@ -41,7 +41,6 @@ const items = [
         display: flex;
         flex-direction: column;
         align-items: start;
-
         gap: var(--p-small-gap);
 
         @media (min-width: 1025px) {

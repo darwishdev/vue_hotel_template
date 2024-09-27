@@ -1,7 +1,6 @@
-import { BaseTable } from '@/db/base';
-import type { ReservableUnitFindRow } from '@/db/types';
-import type { Table } from 'dexie';
-import db from './init';
+import { BaseTable } from '@/common/db/base';
+import type { ReservableUnitFindRow } from '@/common/db/types';
+import db from './db';
 import { ReservableUnitFindFilteredResponse } from '@buf/ahmeddarwish_abc-api.bufbuild_es/abc/v1/properties_property_filters_pb';
 
 export class ReservableUnitTable extends BaseTable<ReservableUnitFindRow> {

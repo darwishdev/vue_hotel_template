@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { getAssetPath } from '@/common/utilites/path';
 import { ref } from 'vue';
 
 const props = defineProps<{
@@ -7,12 +8,12 @@ const props = defineProps<{
 }>()
 
 const opacity = ref(props.overlayOpacity && props.overlayOpacity > 0 && props.overlayOpacity <= 1 ? props.overlayOpacity : 0.4)
-
+const bannerImageSrc = getAssetPath(props.bannerImage || " ")
 </script>
 
 <template>
 
-    <div class="banner" :style="`background-image: url(${bannerImage}); background-size: cover`">
+    <div class="banner" :style="`background-image: url(${bannerImageSrc}); background-size: cover`">
         <div class="banner-overlay" :style="`background-color: rgba(0, 0, 0, ${opacity});`">
             <slot></slot>
         </div>
@@ -21,16 +22,6 @@ const opacity = ref(props.overlayOpacity && props.overlayOpacity > 0 && props.ov
 </template>
 
 <style>
-@keyframes scale {
-    from {
-        background-size: 100%;
-    }
-
-    to {
-        background-size: 150%
-    }
-}
-
 .banner {
     position: relative;
     width: 100%;
@@ -40,6 +31,9 @@ const opacity = ref(props.overlayOpacity && props.overlayOpacity > 0 && props.ov
     animation: scale;
     animation-timeline: view();
     animation-range: exit -400px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
 }
 
 .banner-image {
@@ -56,6 +50,7 @@ const opacity = ref(props.overlayOpacity && props.overlayOpacity > 0 && props.ov
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -71,7 +66,6 @@ const opacity = ref(props.overlayOpacity && props.overlayOpacity > 0 && props.ov
     .banner {
         position: relative;
         width: 100%;
-        height: 200px;
         overflow: hidden;
         border-radius: 5px;
     }

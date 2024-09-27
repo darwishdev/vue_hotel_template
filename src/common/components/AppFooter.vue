@@ -11,7 +11,7 @@ const { addressLine } = globalStore.websiteFindResponse.property
 			<div class="show-desktop mb-4">
 				<div class="grid">
 					<div class="logo">
-						<app-image :src="logo" />
+						<app-image :src="logo" :size="100" />
 						<p v-t="footerParagraph" class="mt-6" />
 					</div>
 					<div class="nav">
@@ -38,16 +38,16 @@ const { addressLine } = globalStore.websiteFindResponse.property
 		</div>
 	</footer>
 </template>
-<style lang="scss">
+<style>
 .app-footer {
 
-	.container {
+	.wrapper {
 		@media(min-width: 1025px) {
 			padding-top: 5rem;
 		}
 	}
 
-	.app-nav {
+	ul {
 		flex-direction: column;
 	}
 

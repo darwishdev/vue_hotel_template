@@ -19,7 +19,7 @@ defineProps<{
     </div>
 </template>
 
-<style lang="scss">
+<style>
 @keyframes width {
     100% {
         width: 100px

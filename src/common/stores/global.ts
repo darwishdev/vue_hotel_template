@@ -1,68 +1,126 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import apiClient from '../api/ApiClient'
+import { PropertyFindFilteredAmenity } from '@buf/ahmeddarwish_abc-api.bufbuild_es/abc/v1/properties_property_filters_pb';
 import { WebsiteFindResponse } from '../types/types'
-
+import db from '@/common/db/db';
+import { PartialMessage } from '@bufbuild/protobuf'
+import website_data from './website_data';
+import { ThemeDefaults } from '../db/types';
+import { useI18n } from 'vue-i18n';
 export const useGlobalStore = defineStore('global', () => {
-
-    const websiteFindResponse = ref<WebsiteFindResponse>({} as any)
-
-    const websiteFind = () => {
+    const i18n = useI18n()
+    const propertyId = parseInt(import.meta.env.VITE_PROPERTY_ID)
+    const websiteFindResponse = ref<WebsiteFindResponse>({
+        website: website_data,
+        property: {}
+    })
+    const theme = ref<ThemeDefaults>({ darkMode: false, preferedLocale: "en" })
+    const normalAmenities = ref<PartialMessage<PropertyFindFilteredAmenity>[]>([])
+    const featuredAmenities = ref<PartialMessage<PropertyFindFilteredAmenity>[]>([])
+    const getFeaturedAmenities = (amenities: PartialMessage<PropertyFindFilteredAmenity>[]) => {
+        const searchList = ['San Stefano Grand Plaza Mall', 'Gleem Bay', 'Royal Jewellery Museum', 'Bibliotheca Alexandrina',
+            'Graeco-Roman Museum', 'Citadel of Qaitbay']
+        const featured: PartialMessage<PropertyFindFilteredAmenity>[] = []
+        const nonFeatured: PartialMessage<PropertyFindFilteredAmenity>[] = []
+        amenities.forEach((amenity) => {
+            if (searchList.includes(amenity.amenityName!)) {
+                featured.push(amenity)
+            } else {
+                nonFeatured.push(amenity)
+            }
+        })
+        normalAmenities.value = nonFeatured
+        featuredAmenities.value = featured
+    }
+    const initProperty = () => {
+        console.log("initins")
         return new Promise((resolve, reject) => {
-            apiClient.propertyFindFiltered({ filters: {}, propertyId: parseInt(import.meta.env.VITE_PROPERTY_ID) }).then((result) => {
-                websiteFindResponse.value!.property = result
-                setWebsiteDetails()
+            apiClient.propertyFindFiltered({ filters: {}, propertyId }).then((result) => {
+                websiteFindResponse.value.property = result
+                getFeaturedAmenities(result.amenities)
                 resolve(websiteFindResponse.value)
             }).catch((err) => {
                 reject(err)
             });
         })
     }
-    function scrollToSection(sectionId: string) {
-        const section = document.querySelector(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+    const initIcons = (): Promise<void> => {
+        return new Promise((resolve) => {
+            db.icons.count().then(count => {
+                count == 0 ? apiClient.iconsInputList({}).then((response) => {
+                    db.icons.clear()
+                    db.icons.bulkAdd(response.icons)
+                    resolve()
+                }).catch((err) => {
+                    console.log('cannot load icons', err)
+                }) : resolve()
+            })
+
+        })
+    }
+
+    const loadThemeDefaults = async (): Promise<ThemeDefaults> => {
+        const theme = await db.theme.toArray()
+        if (theme.length > 0) {
+            return theme[0]
+        }
+        const newThemeId = await db.theme.add({
+            darkMode: false,
+            preferedLocale: 'en',
+        })
+        return {
+            id: newThemeId,
+            darkMode: false,
+            preferedLocale: 'en',
+
         }
     }
 
 
-    const setWebsiteDetails = () => {
-        websiteFindResponse.value!.website = {
-            logo: '/rhactus-logo.png',
-            email: 'info@rhactushotel.com',
-            socialLinks: {
-                facebook: 'https://www.facebook.com/rhactushotelnewalamein',
-                instagram: 'https://www.instagram.com/rhactushotelnewalamein/?hl=en',
-                tripadvisor: 'https://www.tripadvisor.com/Hotel_Review-g19980881-d23541968-Reviews-Rhactus_Hotel_New_Alamein-Marina_El_Alamein_Matrouh_Governorate.html'
-            },
-            footerParagraph: 'Rhactus San Stefano offers a perfect blend of luxury, comfort, and convenience in the heart of Alexandria. Experience exceptional hospitality, breathtaking views, and premium amenities for an unforgettable stay by the sea.',
-            phone: '+201050555955',
-            propertyDiscoverMore: {
-                article: `Nestled in the vibrant San Stefano district of Alexandria, Rhactus Hotel offers a unique blend of modern luxury and rich cultural heritage. Designed to provide guests with a truly memorable experience, Rhactus combines world-class amenities with stunning views of the Mediterranean. Whether you're looking to unwind in our elegantly furnished rooms or explore the nearby attractions, Rhactus offers something for every traveler. <br> <br>
-            Our hotel is more than just a place to stay; it’s an escape from the ordinary. From fine dining at our exclusive restaurants to relaxing by the pool or enjoying a stroll along the seafront, Rhactus ensures every moment of your stay is filled with comfort and pleasure. Discover the charm of Alexandria from the heart of one of its most iconic neighborhoods, and let Rhactus be your gateway to an unforgettable journey.`,
-                images: ['/property-img1.jpg', '/property-img2.jpg']
-            },
-            bannerVideo: '/alex2.webm',
-            bannerHeadline: 'Escape to Luxury',
-            bannerText: 'Discover a world where comfort meets elegance. At Rhactus San Hotel, we offer you  unforgettable experience with luxurious rooms, stunning views, and service   Whether you\'re here for relaxation or adventure, we ensure that every moment  your stay is pure bliss.',
-            sliderSlogan: 'Rhactus San Stefano – Where Luxury Meets the Mediterranean.',
-            bannerSlogan: 'Experience Comfort, Embrace Elegance',
-            partners: [
-                {
-                    partnerName: 'Rhactus New Alamein',
-                    partnerImage: 'https://www.rhactushotel.com/images/uploads/2022319588257.jpg'
-                },
-                {
-                    partnerName: 'Marina Hills',
-                    partnerImage: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/487927693.jpg?k=6f5e0fcac6c03779aac9a8670a81915b27b936a7d64c4c4e8cd0a0a841e196ea&o=&hp=1'
-                },
-            ]
-        }
+    const initTheme = async () => {
+        theme.value = await loadThemeDefaults()
+        if (theme.value.darkMode) document.documentElement.classList.toggle('my-app-dark');
+        const dir = theme.value.preferedLocale == 'ar' ? 'rtl' : 'en'
+        document.documentElement.setAttribute('dir', dir)
+    }
+
+    const initialCalls = (): Promise<void> => {
+        return new Promise((resolve, reject) => {
+            Promise.all([initProperty(), initIcons(), initTheme()])
+                .then(() => {
+                    resolve(); // or resolve(undefined);
+                })
+                .catch(error => {
+                    console.error('One of the promises failed:', error);
+                    reject(error); // Re-throw the error if needed
+                });
+        });
+    };
+    const toggleDarkMode = async () => {
+        theme.value.darkMode = !theme.value.darkMode
+        await db.theme.update(theme.value.id, theme.value)
+        document.documentElement.classList.toggle('my-app-dark')
+    }
+    const toggleLocale = async () => {
+        theme.value.preferedLocale = theme.value.preferedLocale == 'ar' ? 'en' : "ar"
+        const dir = theme.value.preferedLocale == 'ar' ? 'rtl' : 'en'
+        await db.theme.update(theme.value.id, theme.value)
+        document.documentElement.setAttribute('dir', dir)
+        i18n.locale.value = theme.value.preferedLocale
+
+
     }
 
 
     return {
-        websiteFind, websiteFindResponse, scrollToSection
+        initialCalls,
+        websiteFindResponse,
+        theme,
+        featuredAmenities,
+        normalAmenities,
+        toggleDarkMode,
+        toggleLocale
     }
 })
 

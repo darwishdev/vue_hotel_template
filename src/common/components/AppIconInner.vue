@@ -16,7 +16,7 @@ const loadIcon = async (props: AppIconProps): Promise<string> => {
 }
 </script>
 <script setup lang="ts">
-import { h, useAttrs } from 'vue';
+import { h } from 'vue';
 import type { AppIconProps } from '@/common/types/types'
 import db from '@/common/db/db'
 const props = defineProps<AppIconProps>();

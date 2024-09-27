@@ -43,6 +43,18 @@ input,
 button,
 textarea,
 select {
+    @media (max-width:400px) {
+        margin-inline: auto;
+        max-width: 190px;
+
+    }
+
+    @media (max-width:330px) {
+        margin-inline: auto;
+        max-width: 150px;
+
+    }
+
     font: inherit;
 }
 

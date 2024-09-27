@@ -1,5 +1,5 @@
 import type { Table } from 'dexie';
-import type { DexieTableMultiple, DexieTableSingle } from '@/db/types';
+import type { DexieTableMultiple, DexieTableSingle } from '@/common/db/types';
 
 export class BaseTable<T extends DexieTableMultiple<any> | DexieTableSingle<any>> {
     protected table: Table<T>;

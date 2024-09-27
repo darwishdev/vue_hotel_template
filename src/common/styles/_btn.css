@@ -4,6 +4,11 @@
     border-radius: var(--p-border-radius-lg);
     transition: all .3s ease-in;
 
+    &.outline {
+        color: var(--p-primary-color);
+        font-weight: bold;
+    }
+
     &:hover {
         color: #fff;
         color: var(--p-primary-color)

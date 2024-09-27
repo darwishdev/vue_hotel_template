@@ -15,7 +15,7 @@
 
 @media (min-width : 1025px) {
     .hide-desktop {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -58,4 +58,11 @@
 
 .flex-column {
     flex-direction: column !important;
+}
+
+.separator {
+    margin: auto;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.135);
+    width: 75%;
 }
