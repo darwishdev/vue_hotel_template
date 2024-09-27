@@ -99,20 +99,33 @@ const showLess = () => {
     // overflow: scroll;
 }
 
-.amenities_wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    animation: scrolling linear;
-    flex-wrap: no-wrap;
-    animation-timeline: view();
-    animation-range: exit -80vh;
-
-    &.reverse {
-        animation-direction: reverse
+@supports (animation-timeline : view()){
+    .amenities_wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        animation: scrolling linear;
+        flex-wrap: no-wrap;
+        animation-timeline: view();
+        animation-range: exit -80vh;
+    
+        &.reverse {
+            animation-direction: reverse
+        }
     }
-
-
 }
+@supports not (animation-timeline : view()){
+    .amenities_wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        animation: scrolling linear;
+        flex-wrap: no-wrap;
+        animation: scrolling 6s ease-in .1s infinite;
+        &.reverse {
+            animation-direction: reverse
+        }
+    }
+}
+
 
 .amenity_wrapper {
     padding: 1rem;
