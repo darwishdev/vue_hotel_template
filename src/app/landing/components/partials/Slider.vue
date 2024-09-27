@@ -22,11 +22,7 @@ const modules = [Autoplay, Keyboard, EffectCoverflow, Pagination]
       '1600': {
         slidesPerView: 4
       },
-    }" :autoplay="{
-      delay: 5500,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    }" :coverflow-effect="{
+    }" :autoplay="false" :coverflow-effect="{
       rotate: 50,
       stretch: 0,
       depth: 100,
@@ -44,18 +40,8 @@ const modules = [Autoplay, Keyboard, EffectCoverflow, Pagination]
   max-height: 270px;
 }
 
-@keyframes slide-in {
-  100% {
-    transform: translate(0, 0);
-    opacity: 1
-  }
-}
-
-
 .slide-innn {
   direction: ltr;
-  opacity: 0;
-  transform: translate(-10%, 10%);
   animation: slide-in linear forwards;
   animation-timeline: view() !important;
   position: relative;

@@ -1,0 +1,31 @@
+.app-btn {
+    border: 1px solid var(--p-primary-color);
+    padding: var(--p-button-padding);
+    border-radius: var(--p-border-radius-lg);
+    transition: all .3s ease-in;
+
+    &.outline {
+        color: var(--p-primary-color);
+        font-weight: bold;
+    }
+
+    &:hover {
+        color: #fff;
+        color: var(--p-primary-color)
+    }
+
+    &.primary {
+        background-color: var(--p-primary-color);
+        color: #fff;
+
+        &:hover {
+            background-color: transparent;
+            color: var(--p-primary-color)
+        }
+    }
+
+    i,
+    .app-icon {
+        margin-right: var(--p-inline-spacing-sm);
+    }
+}

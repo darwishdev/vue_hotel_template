@@ -41,21 +41,11 @@ const items = [
         display: flex;
         flex-direction: column;
         align-items: start;
-
         gap: var(--p-small-gap);
 
         @media (min-width: 1025px) {
             flex-direction: row;
         }
-
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-
-        @media (min-width: 1025px) {
-            flex-direction: row;
-        }
-
     }
 }
 </style>

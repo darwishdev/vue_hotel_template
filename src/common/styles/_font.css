@@ -12,6 +12,13 @@
     --font-size-text: 1rem;
     /* Regular text (e.g., 16px) */
 
+    @media (max-width: 1025px) {
+        --font-size-big-title: 2rem;
+        --font-size-title: 1rem;
+        /* Title (e.g., 32px) */
+
+    }
+
     /* Line heights */
     --line-height-big-title: 1.2;
     --line-height-title: 1.4;

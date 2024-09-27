@@ -18,7 +18,7 @@ const renderImage = () => {
         height: sizeObj ? sizeObj.height : undefined,
         ...props.imageProps
     }
-    return h(Image, { ...imgProps, style: { maxHeight: props.maxHeight }, onError: () => imageSrc.value = fallBackImageUrl }, () => slots)
+    return h(Image, { ...imgProps, style: { maxHeight: props.maxHeight, width: sizeObj ? sizeObj.width : defaultWidth }, onError: () => imageSrc.value = fallBackImageUrl }, () => slots)
 }
 </script>
 
