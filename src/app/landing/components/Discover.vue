@@ -16,7 +16,7 @@ onMounted(() => {
 <template>
     <article ref="discoverContainer" class="discover-container grid gap-2">
         <div class="col-12 md:col-6 text-justify">
-            <p class="mb-3">{{ article }} </p>
+            <p v-html="article" class="mb-3"></p>
         </div>
         <div class="col discover-more-section">
             <AppImage :size="{ width: '100%' }" v-for="image in images" :key="image" class="mb-2" :src="image">

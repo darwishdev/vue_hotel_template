@@ -40,6 +40,14 @@
     animation-timeline: scroll();
 }
 
+.app-icon svg{
+    color: var(--p-text-color);
+    fill: var(--p-text-color);
+}
+.app-icon svg path{
+    fill: var(--p-text-color);
+}
+
 .darker {
     background-color: var(--p-color-background-darker);
 }

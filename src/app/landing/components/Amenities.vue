@@ -8,9 +8,13 @@ import observer from "@/common/utilites/animation";
 const globalStore = useGlobalStore()
 const amenitiesContainer = ref()
 const amenitiesParentContainer = ref()
-const showAll = ref(true)
+const showAll = ref(false)
 const allAmenities = ref(globalStore.normalAmenities)
+const innerWidth = window.innerWidth
 onMounted(() => {
+    if(innerWidth > 800){
+        showAll.value = true
+    }
     autoAnimate(amenitiesContainer.value, {
         easing: 'ease-in-out'
     })
