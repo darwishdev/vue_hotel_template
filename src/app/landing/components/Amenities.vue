@@ -8,7 +8,7 @@ import observer from "@/common/utilites/animation";
 const globalStore = useGlobalStore()
 const amenitiesContainer = ref()
 const amenitiesParentContainer = ref()
-const showAll = ref(false)
+const showAll = ref(true)
 const allAmenities = ref(globalStore.normalAmenities)
 onMounted(() => {
     autoAnimate(amenitiesContainer.value, {
@@ -34,33 +34,35 @@ const showLess = () => {
 
 <template>
     <div ref="amenitiesParentContainer">
-        <div v-show="showAll" class="fadeindown animation-duration-300">
-            <div ref="amenitiesContainer" class="flex justify-content-center flex-wrap gap-3 mb-3">
-                <Amenity class="w-10rem" v-for="amenity in allAmenities" :key="amenity.amenityId" :amenity="amenity" />
+        <div v-show="showAll" class="desktop-wrapper fadeindown animation-duration-300">
+            <div ref="amenitiesContainer" class="flex justify-content-center flex-wrap gap-3 mb-3 px-1 md:px-3">
+                <Amenity class="w-10rem md:w-12rem" v-for="amenity in allAmenities" :key="amenity.amenityId" :amenity="amenity" />
             </div>
         </div>
         <div v-show="!showAll" class="fadein animation-duration-300">
-            <div class="am-scrolling amenities_wrapper">
-                <Amenity v-for="amenity in firstHalf" :key="amenity.amenityId" :amenity="amenity" />
+            <div class="am-container">
+                <div class="am-scrolling amenities_wrapper">
+                    <Amenity v-for="amenity in firstHalf" :key="amenity.amenityId" :amenity="amenity" />
+                </div>
             </div>
-            <div class="am-scrolling reverse amenities_wrapper  ">
-                <Amenity class="amenity" v-for="amenity in secondHalf" :key="amenity.amenityId" :amenity="amenity" />
+            <div class="am-container">
+                <div class="am-scrolling reverse amenities_wrapper  ">
+                    <Amenity class="amenity" v-for="amenity in secondHalf" :key="amenity.amenityId" :amenity="amenity" />
+                </div>
             </div>
         </div>
         <div class="wrapper">
-            <Button severity="contrast" class="px-4" v-if="!showAll" @click="showAll = true"
+            <Button severity="contrast" class="flex lg:hidden px-4" v-if="!showAll" @click="showAll = true"
                 :label="`Show All ${allAmenities.length} Amenities`"></Button>
-            <Button severity="contrast" outlined v-else @click="showLess" :label="`Show Less`"></Button>
+            <Button severity="contrast" class="flex lg:hidden" outlined v-else @click="showLess" :label="`Show Less`"></Button>
         </div>
     </div>
 </template>
 <style lang="scss">
-.hd {
-    // overflow: scroll;
+.desktop-wrapper{
+    animation: fade-up;
+    animation-timeline: view();
 }
-
-
-
 .amenities_wrapper {
     display: grid;
     @supports (animation-timeline: view()){
@@ -80,15 +82,16 @@ const showLess = () => {
 @supports not (animation-timeline: view()){
     @keyframes amenity-scrolling {
         from {
-            -webkit-transform: translate(0);
-            transform: translate(0);
+            transform: translateX(0);
         }
-    
         to {
-            -webkit-transform: translate(calc(-80% - 0.5rem));
-            transform: translate(calc(-80% - 0.5rem));
+            transform: translateX(-150%);
         }
     }
+    .am-container {
+        width: 100%;
+        overflow-x:auto !important;
+    }    
     .am-scrolling{
         gap : 30px !important;
     }
@@ -96,16 +99,9 @@ const showLess = () => {
         width: 160px;
     }
     .animating .am-scrolling{
-        -webkit-animation: amenity-scrolling 3s;
-        -webkit-animation-play-state: running;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-iteration-count: infinite;
+        -webkit-animation: amenity-scrolling 10s linear infinite;
     }
     .animating .reverse{
-        -webkit-animation: amenity-scrolling 3s;
-        -webkit-animation-play-state: running;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-iteration-count: infinite;
         -webkit-animation-direction: reverse;
     }
 }

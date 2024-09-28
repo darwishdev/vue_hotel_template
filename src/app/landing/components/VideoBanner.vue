@@ -22,11 +22,11 @@ onMounted(() => {
                 <p>{{ bannerText }}</p>
                 <div class="actions">
 
-                    <a class="app-btn primary" href="#contact">
+                    <a class="flex justify-content-center align-items-center w-10rem app-btn primary" href="#contact">
                         <i class="pi pi-phone" />
                         {{ $t('contact') }}
                     </a>
-                    <a class="app-btn outline" href="#rooms">
+                    <a class="flex justify-content-center align-items-center w-10rem text-white app-btn outline" href="#rooms">
                         <i class="pi pi-key" />
                         {{ $t('units') }}</a>
                 </div>

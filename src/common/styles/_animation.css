@@ -37,8 +37,8 @@
     }
 
     to {
-        -webkit-transform: translate(calc(-50% - 0.5rem));
-        transform: translate(calc(-50% - 0.5rem));
+        -webkit-transform: translate(calc(-130% - 0.5rem));
+        transform: translate(calc(-130% - 0.5rem));
     }
 }
 
@@ -116,7 +116,7 @@
     }
 }
 
-@-webkit-keyframes fade-up {
+@keyframes fade-up {
     from {
         opacity: 0;
         -webkit-transform: translateY(var(--p-animation-up-spacing));
@@ -130,7 +130,6 @@
         transform: translateY(0);
     }
 }
-
 
 /* Add animations for each class */
 .fade-out.animating {

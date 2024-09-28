@@ -22,7 +22,10 @@ const modules = [Autoplay, Keyboard, EffectCoverflow, Pagination]
       '1600': {
         slidesPerView: 4
       },
-    }" :autoplay="false" :coverflow-effect="{
+    }" :autoplay="{
+      delay : 3000,
+      pauseOnMouseEnter : true,
+    }" :coverflow-effect="{
       rotate: 50,
       stretch: 0,
       depth: 100,
