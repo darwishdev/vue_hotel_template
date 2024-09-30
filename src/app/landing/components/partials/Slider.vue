@@ -49,6 +49,9 @@ const modules = [Autoplay, Keyboard, EffectCoverflow, Pagination]
   animation-timeline: view() !important;
   position: relative;
   margin-bottom: 1rem;
+  @supports (animation-timeline: view()){
+    opacity: 0;
+  }
   animation-range: entry 50% cover 50% !important;
 }
 </style>

@@ -60,8 +60,7 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 
 			</div>
 		</div>
-		<div class="amenities px-3 mt-4">
-
+		<div class="featured-amenities amenities px-3 mt-4">
 			<Amenity v-for="amenity in globalStore.featuredAmenities" :key="amenity.amenityId"
 				:amenity="amenity" />
 		</div>
@@ -101,6 +100,16 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 
 	.amenity {
 		width: 100%;
+	}
+}
+
+@media screen and (max-width : 400px) {
+	.featured-amenities{
+		max-height: 330px;
+		overflow-y: auto;
+	}
+	.featured-amenities .amenity{
+		height: 140px;
 	}
 }
 </style>

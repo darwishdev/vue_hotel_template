@@ -58,18 +58,6 @@ fieldset {
 
     >div {
         flex-grow: 1;
-
-        .p-inputtext,
-        .p-textarea {
-            animation: fade-up;
-            animation-timeline: view();
-        }
-
-        label {
-            animation: fade-in;
-            animation-timeline: view();
-
-        }
     }
 }
 </style>
