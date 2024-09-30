@@ -6,7 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
+rhss.rhactushotel.com
+rha-san.rha-san.com
+.env.development
 node_modules
 dist
 dist-ssr
