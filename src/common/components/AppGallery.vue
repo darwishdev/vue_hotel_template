@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { onUnmounted, ref } from 'vue';
-import ScrollableContainer from './ScrollableContainer.vue';
 import Galleria from 'primevue/galleria';
 import AppImage from './AppImage.vue';
-const activeIndex = ref(0);
-const props = defineProps<{ images: string[] }>()
+defineProps<{ images: string[] }>()
 const responsiveOptions = ref([
     {
         breakpoint: '1024px',
@@ -25,11 +23,6 @@ onUnmounted(() => {
     displayCustom.value = false;
 
 })
-const imageClick = (index: number) => {
-    console.log('image')
-    activeIndex.value = index;
-    displayCustom.value = true;
-};
 </script>
 <template>
     <div class="p-4 px-1 w-full mx-auto flex justify-content-center align-items-center">

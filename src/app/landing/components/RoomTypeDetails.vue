@@ -1,12 +1,8 @@
 <script setup lang="ts">
 import { inject, onMounted, ref } from "vue";
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { EffectCoverflow, Pagination, Autoplay, Keyboard } from 'swiper/core';
-import AppImage from '@/common/components/AppImage.vue';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow'
-const modules = [Autoplay, Keyboard, EffectCoverflow, Pagination]
 import { PropertyFindFilteredReservableUnit } from '@buf/ahmeddarwish_abc-api.bufbuild_es/abc/v1/properties_property_filters_pb';
 import apiClient from "@/common/api/ApiClient";
 import { ReservableUnitsViewEntity } from "@buf/ahmeddarwish_abc-api.bufbuild_es/abc/v1/properties_entities_pb";
@@ -21,9 +17,7 @@ onMounted(() => {
         setTimeout(() => {
             reservableUnit.value = result
         }, 300);
-    }).catch((err) => {
-        
-    });
+    })
 })
 
 </script>

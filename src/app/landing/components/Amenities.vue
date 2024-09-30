@@ -67,13 +67,15 @@ const showLess = () => {
     animation: fade-up;
     animation-timeline: view();
 }
-.amenities_wrapper {
-    display: grid;
-    @supports (animation-timeline: view()){
+@supports (animation-timeline: view()){
+    .amenities_wrapper{
         animation: scrolling linear;
         animation-timeline: view();
         animation-range: exit -80vh;
     }
+}
+.amenities_wrapper {
+    display: grid;
     gap: var(--p-small-gap);
     grid-auto-flow: column;
     margin-bottom: var(--p-small-gap);
