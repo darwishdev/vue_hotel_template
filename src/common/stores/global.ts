@@ -24,7 +24,7 @@ export const useGlobalStore = defineStore('global', () => {
         const featured: PartialMessage<PropertyFindFilteredAmenity>[] = []
         const nonFeatured: PartialMessage<PropertyFindFilteredAmenity>[] = []
         amenities.forEach((amenity) => {
-            if (searchList.includes(amenity.amenityName!)) {
+            if (amenity.amenityName && searchList.includes(amenity.amenityName!)) {
                 featured.push(amenity)
             } else {
                 nonFeatured.push(amenity)
@@ -36,12 +36,14 @@ export const useGlobalStore = defineStore('global', () => {
     const initProperty = () => {
         console.log("initins")
         return new Promise((resolve, reject) => {
-            apiClient.propertyFindFiltered({ filters: {}, propertyId }).then((result) => {
+            apiClient.propertyFindFiltered({ filters: {}, propertyId : parseInt(propertyId as any) }).then((result) => {
                 websiteFindResponse.value.property = result
                 getFeaturedAmenities(result.amenities)
                 resolve(websiteFindResponse.value)
             }).catch((err) => {
                 reject(err)
+                console.log(err , 'initProperty');
+                
             });
         })
     }
@@ -54,6 +56,7 @@ export const useGlobalStore = defineStore('global', () => {
                     resolve()
                 }).catch((err) => {
                     console.log('cannot load icons', err)
+                    
                 }) : resolve()
             })
 

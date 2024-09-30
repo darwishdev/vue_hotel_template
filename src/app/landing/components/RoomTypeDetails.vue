@@ -11,6 +11,7 @@ import { PropertyFindFilteredReservableUnit } from '@buf/ahmeddarwish_abc-api.bu
 import apiClient from "@/common/api/ApiClient";
 import { ReservableUnitsViewEntity } from "@buf/ahmeddarwish_abc-api.bufbuild_es/abc/v1/properties_entities_pb";
 import Loading from "@/common/components/Loading.vue";
+import AppGallery from "@/common/components/AppGallery.vue";
 const dialogRef: any = inject('dialogRef');
 const room = ref<PropertyFindFilteredReservableUnit>(dialogRef.value.data.room)
 const reservableUnit = ref<ReservableUnitsViewEntity>()
@@ -29,15 +30,9 @@ onMounted(() => {
 
 <template>
     <div v-if="reservableUnit" class="zoomin animation-duration-300">
-        <swiper class="slide-innn" :modules="modules" :pagination="true" :effect="'coverflow'" :grab-cursor="true"
-        :keyboard="{ enabled: true }" :centered-slides="false" :slides-per-view="2" :autoplay="{
-          delay : 3000,
-          pauseOnMouseEnter : true,
-        }" :coverflow-effect="{ rotate: 50, stretch: 0, depth: 100, modifier: 1,slideShadows: false}">
-        <swiper-slide v-for="image in reservableUnit?.reservableUnitImages.split(',')">
-          <AppImage :src="image" :image-props="{ preview: true }" :size="{ width: '100%' }" max-height='200px'></AppImage>
-        </swiper-slide>
-      </swiper>
+        <div class="mx-auto propertyGallery w-full justify-content-center align-items-center flex px-2 mb-0">
+            <AppGallery class="pb-0" :images="reservableUnit.reservableUnitImages.split(',')" />
+        </div>
       <p class="text-center text-base p-2 px-3">
           {{ reservableUnit.reservableUnitDescription }}
       </p>
@@ -46,3 +41,17 @@ onMounted(() => {
         <Loading></Loading>
     </div>
 </template>
+
+<style>
+@media screen and (min-width : 600px) {
+    .propertyGallery {
+        max-width: 700px !important;
+    }
+}
+
+@media screen and (min-width : 1600px) {
+    .propertyGallery {
+        max-width: 1000px !important;
+    }
+}
+</style>

@@ -9,10 +9,31 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow'
 import RoomType from './partials/RoomType.vue';
 const modules = [Autoplay, Keyboard, EffectCoverflow, Pagination]
+import { useDialog } from 'primevue/usedialog';
+import RoomTypeDetails from './RoomTypeDetails.vue';
 
+const dialog = useDialog();
+const openReservableUnitFindDialog = (unit : PropertyFindFilteredReservableUnit) => {
+	dialog.open(RoomTypeDetails, {
+		props: {
+			style : {'width' : '50vw'},
+			header : unit.reservableUnitName,
+			closable : true,
+			modal: true,
+			dismissableMask: true
+		},
+		data: {
+			room: unit
+		},
+		onClose: (options) => {
+			console.log('options', options)
+		}
+
+	});
+}
 </script>
 <template>
-  <swiper :modules="modules" :pagination="true" :effect="'coverflow'" :grab-cursor="true" :keyboard="{ enabled: true }"
+  <swiper :modules="modules" :pagination="true" :effect="'coverflow'"  :grab-cursor="true" :keyboard="{ enabled: true }"
     :centered-slides="false" :slides-per-view="1" :breakpoints="{
       '640': {
         slidesPerView: 2
@@ -23,7 +44,8 @@ const modules = [Autoplay, Keyboard, EffectCoverflow, Pagination]
       '1600': {
         slidesPerView: 4
       },
-    }" :autoplay="{
+    }"
+    loop :autoplay="{
         delay: 2500,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
@@ -34,7 +56,7 @@ const modules = [Autoplay, Keyboard, EffectCoverflow, Pagination]
         modifier: 1,
         slideShadows: true
       }">
-    <swiper-slide v-for="unit in globalStore.websiteFindResponse.property.reservableUnits">
+    <swiper-slide @click="openReservableUnitFindDialog(unit as any)" v-for="unit in globalStore.websiteFindResponse.property.reservableUnits">
       <RoomType :unit="(unit as PropertyFindFilteredReservableUnit)"></RoomType>
     </swiper-slide>
   </swiper>
