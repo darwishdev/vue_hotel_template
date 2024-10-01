@@ -52,7 +52,7 @@ onMounted(() => {
 
 
 </template>
-<style lang="scss">
+<style  >
 
 @keyframes v-scaling {
     0% {
@@ -92,13 +92,6 @@ onMounted(() => {
     video {
         min-height: 100%;
         object-fit: cover;
-
-        @supports (animation-timeline: view()) {
-            animation: header-video-animation linear forwards;
-            animation-timeline: view();
-            animation-range: exit;
-        }
-
         inset: 0;
         transform-origin: bottom;
         position: absolute;
@@ -107,6 +100,11 @@ onMounted(() => {
         left: 0;
         width: 100%;
         z-index: -1;
+        @supports (animation-timeline: view()) {
+            animation: header-video-animation linear forwards;
+            animation-timeline: view();
+            animation-range: exit;
+        }
 
     }
 
@@ -116,19 +114,19 @@ onMounted(() => {
         animation-range: exit -2rem;
         z-index: 2;
 
-        & h1,
+         h1,
         h4,
         p {
             color: white;
 
         }
 
-        & .actions {
+         .actions {
             margin-top: 3rem;
             display: flex;
             gap: 1rem;
 
-            & span {
+            span {
 
                 font-size: 1.5rem;
                 color: white

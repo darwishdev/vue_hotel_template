@@ -30,7 +30,6 @@
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "^5.2.0",
     "@vitejs/plugin-vue": "^5.1.4",
-    "sass-embedded": "^1.79.3",
     "typescript": "^5.6.2",
     "vite": "^5.4.7",
     "vite-plugin-vue-devtools": "^7.4.5",

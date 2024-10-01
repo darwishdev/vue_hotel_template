@@ -62,7 +62,7 @@ const showLess = () => {
         </div>
     </div>
 </template>
-<style lang="scss">
+<style >
 .desktop-wrapper{
     animation: fade-up;
     animation-timeline: view();

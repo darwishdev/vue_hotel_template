@@ -36,31 +36,7 @@ onMounted(() => {
     height: 100%;
     object-fit: cover;
 }
-
-@keyframes fade-up {
-    from {
-        opacity: 0;
-        transform: translateY(300px)
-    }
-
-    50%,
-    100% {
-        opacity: 1;
-        transform: translateY(0)
-    }
-}
-
-article img {
-    @supports (animation-timeline: view()){
-        animation: fade-up;
-        animation-timeline: view();
-    }
-}
-
-@supports not (animation-timeline: view()){
-    .animating.discover-container{
-        -webkit-animation: fade-up 2.5s ease-in-out;
-    }
-}
+  
+ 
 
 </style>

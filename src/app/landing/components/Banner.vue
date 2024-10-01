@@ -19,7 +19,7 @@ const bannerImageSrc = getAssetPath(props.bannerImage || " ")
 
 <template>
 
-    <div ref="bannerRef" class="bg-scale banner" :style="`background-image: url(${bannerImageSrc});`">
+    <div ref="bannerRef" class="  banner" :style="`background-image: url(${bannerImageSrc});`">
         <div class="banner-overlay" :style="`background-color: rgba(0, 0, 0, ${opacity});`">
             <slot></slot>
         </div>

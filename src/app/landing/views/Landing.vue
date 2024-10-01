@@ -50,7 +50,7 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 	<AppSection id="rooms" title="Room Types">
 		<RoomTypes></RoomTypes>
 	</AppSection>
-	<Banner class="amenities-banner" :bannerImage="featuredAmenitiesImage!">
+	<Banner class="amenities-banner"  :bannerImage="featuredAmenitiesImage!">
 		<div class="wrapper">
 			<div class="text-white w-full px-4">
 				<h2>{{ featuredAmenitiesTitle }}
@@ -86,6 +86,10 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 .amenities-banner.banner {
 	padding: var(--p-larg-gap);
 	height: 500px !important;
+background-size: cover;
+	@media (max-width:400px){
+		height: 600px !important;
+	}
 }
 
 .amenities {
@@ -93,20 +97,20 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 	grid-auto-flow: column;
 	gap: 10px;
 
-	@media(max-width: 750px) {
-		grid-template-columns: repeat(2, 1fr);
-		grid-auto-flow: row;
-	}
+	
 
 	.amenity {
 		width: 100%;
+	}
+	@media(max-width: 750px) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-flow: row;
 	}
 }
 
 @media screen and (max-width : 400px) {
 	.featured-amenities{
-		max-height: 330px;
-		overflow-y: auto;
+		 
 	}
 	.featured-amenities .amenity{
 		height: 140px;

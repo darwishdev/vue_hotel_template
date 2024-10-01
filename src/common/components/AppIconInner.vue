@@ -36,13 +36,13 @@ const renderIcon = () => {
 	<component :is="renderIcon" />
 </template>
 
-<style lang="scss">
+<style  >
 .app-icon {
 	display: inline-block;
 	height: 25px;
 	width: 25px;
 
-	& svg {
+	 svg {
 		width: 25px;
 		height: 25px;
 	}
@@ -52,7 +52,7 @@ const renderIcon = () => {
 		height: 3rem;
 		width: 3rem;
 
-		& svg {
+		  svg {
 			height: 3rem;
 			width: 3rem;
 		}
@@ -62,7 +62,7 @@ const renderIcon = () => {
 		height: 1rem;
 		width: 1rem;
 
-		& svg {
+		  svg {
 			height: 1rem;
 			width: 1rem;
 		}
