@@ -9,32 +9,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow'
 import RoomType from './partials/RoomType.vue';
 const modules = [Autoplay, Keyboard, EffectCoverflow, Pagination]
-import { useDialog } from 'primevue/usedialog';
 import RoomTypeDetails from './RoomTypeDetails.vue';
-
-const dialog = useDialog();
-const openReservableUnitFindDialog = (unit : PropertyFindFilteredReservableUnit) => {
-	dialog.open(RoomTypeDetails, {
-		props: {
-			style : {'width' : '50vw'},
-			header : unit.reservableUnitName,
-			closable : true,
-			modal: true,
-			dismissableMask: true
-		},
-		data: {
-			room: unit
-		},
-		onClose: (options) => {
-			console.log('options', options)
-		}
-
-	});
-}
-</script>
-<template>
-  <swiper :modules="modules" :pagination="true" :effect="'coverflow'"  :grab-cursor="true" :keyboard="{ enabled: true }"
-    :centered-slides="false" :slides-per-view="1" :breakpoints="{
+const breakpoints = {
       '640': {
         slidesPerView: 2
       },
@@ -44,18 +20,27 @@ const openReservableUnitFindDialog = (unit : PropertyFindFilteredReservableUnit)
       '1600': {
         slidesPerView: 4
       },
-    }"
-    loop :autoplay="{
+}
+const autoPlayOptions = {
         delay: 2500,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
-      }" :coverflow-effect="{
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true
-      }">
+}
+const coverFlowEffect = {
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true
+}
+const openReservableUnitFindDialog = (unit : PropertyFindFilteredReservableUnit) => {
+	globalStore.openDialog(RoomTypeDetails , unit.reservableUnitName , { room : unit.reservableUnitId})
+}
+</script>
+<template>
+  <swiper :modules="modules" :pagination="true" :effect="'coverflow'"  :grab-cursor="true" :keyboard="{ enabled: true }"
+    :centered-slides="false" :slides-per-view="1" :breakpoints="breakpoints"
+    loop :autoplay="autoPlayOptions" :coverflow-effect="coverFlowEffect">
     <swiper-slide @click="openReservableUnitFindDialog(unit as any)" v-for="unit in globalStore.websiteFindResponse.property.reservableUnits">
       <RoomType :unit="(unit as PropertyFindFilteredReservableUnit)"></RoomType>
     </swiper-slide>

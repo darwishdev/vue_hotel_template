@@ -10,9 +10,9 @@ import Slider from '../components/partials/Slider.vue';
 import RoomTypes from '../components/RoomTypes.vue';
 import VideoBanner from '../components/VideoBanner.vue';
 import Discover from '../components/Discover.vue';
-import Amenity from '../components/partials/Amenity.vue';
+import FeaturedAmenities from '../components/FeaturedAmenities.vue';
 const globalStore = useGlobalStore()
-const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmenitiesTitle } = globalStore.websiteFindResponse.website
+const { bannerImage, featuredAmenitiesImage } = globalStore.websiteFindResponse.website
 
 </script>
 <template>
@@ -35,9 +35,7 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 				</h3>
 				<span class="text-xs md:text-sm font-light">Stay with Rhactus House in
 					Alexandria.</span>
-
 			</div>
-
 		</div>
 	</Banner>
 	<div id="amenities" class="py-8 darker">
@@ -51,29 +49,16 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 		<RoomTypes></RoomTypes>
 	</AppSection>
 	<Banner class="amenities-banner"  :bannerImage="featuredAmenitiesImage!">
-		<div class="wrapper">
-			<div class="text-white w-full px-4">
-				<h2>{{ featuredAmenitiesTitle }}
-					<br>
-					<p class="font-light">{{ featuredAmenitiesText }}</p>
-				</h2>
-
-			</div>
-		</div>
-		<div class="featured-amenities amenities px-3 mt-4">
-			<Amenity v-for="amenity in globalStore.featuredAmenities" :key="amenity.amenityId"
-				:amenity="amenity" />
-		</div>
-
+		<FeaturedAmenities />
 	</Banner>
 	<AppSection id="location" title="Our Location">
-		<Map class="scale w-full animate-on-scroll"></Map>
+		<Map class="scale w-full animate-on-scroll" />
 	</AppSection>
 	<AppSection id="contact" dark title="Get In Touch">
 		<Contact />
 	</AppSection>
 	<AppSection id="discover_more" title="Discover More About Rhactus">
-		<Discover></Discover>
+		<Discover />
 	</AppSection>
 	<AppFooter />
 </template>
@@ -86,7 +71,7 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 .amenities-banner.banner {
 	padding: var(--p-larg-gap);
 	height: 500px !important;
-background-size: cover;
+	background-size: cover;
 	@media (max-width:400px){
 		height: 600px !important;
 	}
@@ -108,12 +93,4 @@ background-size: cover;
 	}
 }
 
-@media screen and (max-width : 400px) {
-	.featured-amenities{
-		 
-	}
-	.featured-amenities .amenity{
-		height: 140px;
-	}
-}
 </style>

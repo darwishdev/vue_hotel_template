@@ -28,15 +28,6 @@ const bannerImageSrc = getAssetPath(props.bannerImage || " ")
 </template>
 
 <style>
-@keyframes mob-scale {
-    0%{
-        background-size: 145%;
-    }
-    100%{
-        background-size: 230%;
-    }
-}
-
 .banner {
     position: relative;
     width: 100%;

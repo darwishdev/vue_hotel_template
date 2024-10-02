@@ -8,8 +8,10 @@ import { PartialMessage } from '@bufbuild/protobuf'
 import website_data from './website_data';
 import { ThemeDefaults } from '../db/types';
 import { useI18n } from 'vue-i18n';
+import { useDialog } from 'primevue/usedialog';
 export const useGlobalStore = defineStore('global', () => {
     const i18n = useI18n()
+    const dialog = useDialog()
     const propertyId = parseInt(import.meta.env.VITE_PROPERTY_ID)
     const websiteFindResponse = ref<WebsiteFindResponse>({
         website: website_data,
@@ -111,13 +113,26 @@ export const useGlobalStore = defineStore('global', () => {
         await db.theme.update(theme.value.id, theme.value)
         document.documentElement.setAttribute('dir', dir)
         i18n.locale.value = theme.value.preferedLocale
+    }
 
-
+    const openDialog = (component : any , header : string , data : any) => {
+        dialog.open(component, {
+            props: {
+                style : {'width' : '50vw'},
+                header : header,
+                closable : true,
+                modal: true,
+                dismissableMask: true
+            },
+            data: {
+                ...data
+            },
+        });
     }
 
 
     return {
-        initialCalls,
+        initialCalls, openDialog ,
         websiteFindResponse,
         theme,
         featuredAmenities,
