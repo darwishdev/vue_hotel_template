@@ -29,10 +29,11 @@ const bannerImageSrc = getAssetPath(props.bannerImage || " ")
 
 <style>
 @keyframes mob-scale {
-    0%{
+    0% {
         background-size: 145%;
     }
-    100%{
+
+    100% {
         background-size: 230%;
     }
 }
@@ -44,14 +45,16 @@ const bannerImageSrc = getAssetPath(props.bannerImage || " ")
     overflow: hidden;
     border-radius: 5px;
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-size: cover;
+    background-position: center;
 }
 
-@supports not (animation-timeline: view()){
-    .animating.bg-scale{
+@supports not (animation-timeline: view()) {
+    .animating.bg-scale {
         -webkit-animation: scale 1.5s ease-in-out;
         background-size: 150%;
     }
+
     @media screen and (max-width : 500px) {
         .animating.bg-scale {
             -webkit-animation: mob-scale 1.5s ease-in-out;
@@ -61,12 +64,13 @@ const bannerImageSrc = getAssetPath(props.bannerImage || " ")
 }
 
 @supports (animation-timeline: view()) {
-    .banner{
+    .banner {
         background-size: cover;
         animation: scale;
         animation-timeline: view();
         animation-range: exit -400px;
     }
+
     @media screen and (max-width : 500px) {
         .banner {
             background-size: cover;

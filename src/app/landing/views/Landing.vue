@@ -33,8 +33,6 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 				<h3>
 					Experience Comfort, Embrace Elegance
 				</h3>
-				<span class="text-xs md:text-sm font-light">Stay with Rhactus House in
-					Alexandria.</span>
 
 			</div>
 
@@ -50,7 +48,7 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 	<AppSection id="rooms" title="Room Types">
 		<RoomTypes></RoomTypes>
 	</AppSection>
-	<Banner class="amenities-banner"  :bannerImage="featuredAmenitiesImage!">
+	<Banner class="amenities-banner" :bannerImage="featuredAmenitiesImage!">
 		<div class="wrapper">
 			<div class="text-white w-full px-4">
 				<h2>{{ featuredAmenitiesTitle }}
@@ -86,8 +84,9 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 .amenities-banner.banner {
 	padding: var(--p-larg-gap);
 	height: 500px !important;
-background-size: cover;
-	@media (max-width:400px){
+	background-size: cover;
+
+	@media (max-width:400px) {
 		height: 600px !important;
 	}
 }
@@ -97,11 +96,12 @@ background-size: cover;
 	grid-auto-flow: column;
 	gap: 10px;
 
-	
+
 
 	.amenity {
 		width: 100%;
 	}
+
 	@media(max-width: 750px) {
 		grid-template-columns: repeat(2, 1fr);
 		grid-auto-flow: row;
@@ -109,10 +109,9 @@ background-size: cover;
 }
 
 @media screen and (max-width : 400px) {
-	.featured-amenities{
-		 
-	}
-	.featured-amenities .amenity{
+	.featured-amenities {}
+
+	.featured-amenities .amenity {
 		height: 140px;
 	}
 }

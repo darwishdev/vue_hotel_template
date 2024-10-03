@@ -18,22 +18,23 @@ onMounted(() => {
         <div class="wrapper">
             <div class="banner-content">
                 <h1>{{ bannerHeadline }}</h1>
-                <h4> {{ bannerSlogan }}</h4>
-                <p>{{ bannerText }}</p>
+                <!--     <h4> {{ bannerSlogan }}</h4>
+<p>{{ bannerText }}</p> -->
                 <div class="actions">
 
                     <a class="flex justify-content-center align-items-center w-10rem app-btn primary" href="#contact">
                         <i class="pi pi-phone" />
                         {{ $t('contact') }}
                     </a>
-                    <a class="flex justify-content-center align-items-center w-10rem text-white app-btn outline" href="#rooms">
+                    <a class="flex justify-content-center align-items-center w-10rem text-white app-btn outline"
+                        href="#rooms">
                         <i class="pi pi-key" />
                         {{ $t('units') }}</a>
                 </div>
             </div>
         </div>
-        <video ref="videoElementRef" width="100%" class="v-scale animate-on-scroll" height="auto"
-            preload="auto" muted loop playsinline autobuffer>
+        <video ref="videoElementRef" width="100%" class="v-scale animate-on-scroll" height="auto" preload="auto" muted
+            loop playsinline autobuffer>
             <source :src="bannerVideo" type="video/webm">
         </video>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -52,8 +53,7 @@ onMounted(() => {
 
 
 </template>
-<style  >
-
+<style>
 @keyframes v-scaling {
     0% {
         opacity: 0;
@@ -73,7 +73,7 @@ onMounted(() => {
     }
 }
 
-@supports not (animation-timeline: view()){
+@supports not (animation-timeline: view()) {
     .v-scale.animating {
         -webkit-animation: v-scaling 4s ease-in-out .3s;
     }
@@ -100,6 +100,7 @@ onMounted(() => {
         left: 0;
         width: 100%;
         z-index: -1;
+
         @supports (animation-timeline: view()) {
             animation: header-video-animation linear forwards;
             animation-timeline: view();
@@ -114,14 +115,14 @@ onMounted(() => {
         animation-range: exit -2rem;
         z-index: 2;
 
-         h1,
+        h1,
         h4,
         p {
             color: white;
 
         }
 
-         .actions {
+        .actions {
             margin-top: 3rem;
             display: flex;
             gap: 1rem;

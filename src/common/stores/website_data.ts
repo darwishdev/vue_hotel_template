@@ -4,14 +4,15 @@ const data: WebsiteData = {
     logo: 'properties/rhactus-logo.webp',
     email: 'info@rhactushotel.com',
     socialLinks: {
-        facebook: 'https://www.facebook.com/rhactushotelnewalamein',
-        instagram: 'https://www.instagram.com/rhactushotelnewalamein/?hl=en',
-        tripadvisor: 'https://www.tripadvisor.com/Hotel_Review-g19980881-d23541968-Reviews-Rhactus_Hotel_New_Alamein-Marina_El_Alamein_Matrouh_Governorate.html'
+        facebook: 'https://www.facebook.com/profile.php?id=61565334736199',
+        instagram: 'https://www.instagram.com/rhactushousesanstefano',
+        tripadvisor: 'https://www.linkedin.com/company/rhactushousesanstefano/'
     },
-    bannerImage: "properties/rha-16.webp",
+    bannerImage: "rooms/rhss-1br_superior-4.webp",
     featuredAmenitiesImage: "properties/rha-1.webp",
-    featuredAmenitiesTitle: "Our Nearby Locations!",
-    featuredAmenitiesText: "Stay with Rhactus House in Alexandria.",
+    featuredAmenitiesTitle: "Our Nearby Locations",
+    featuredAmenitiesText: "",
+    //    featuredAmenitiesText: "Stay with Rhactus House in Alexandria.",
     footerParagraph: 'Rhactus San Stefano offers a perfect blend of luxury, comfort, and convenience in the heart of Alexandria. Experience exceptional hospitality, breathtaking views, and premium amenities for an unforgettable stay by the sea.',
     phone: '+201050555955',
     propertyDiscoverMore: {
@@ -20,7 +21,7 @@ const data: WebsiteData = {
         images: ['properties/rha-16.webp', 'properties/rha-15.webp']
     },
     bannerVideo: '/rha-video.webm',
-    bannerHeadline: 'Escape to Luxury',
+    bannerHeadline: 'Live the Stay, Love the Location',
     bannerText: 'Discover a world where comfort meets elegance. At Rhactus San Hotel, we offer you  unforgettable experience with luxurious rooms, stunning views, and service   Whether you\'re here for relaxation or adventure, we ensure that every moment  your stay is pure bliss.',
     sliderSlogan: 'Rhactus San Stefano – Where Luxury Meets the Mediterranean.',
     bannerSlogan: 'Experience Comfort, Embrace Elegance',
