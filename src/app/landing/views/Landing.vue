@@ -10,9 +10,9 @@ import Slider from '../components/partials/Slider.vue';
 import RoomTypes from '../components/RoomTypes.vue';
 import VideoBanner from '../components/VideoBanner.vue';
 import Discover from '../components/Discover.vue';
-import Amenity from '../components/partials/Amenity.vue';
+import FeaturedAmenities from '../components/FeaturedAmenities.vue';
 const globalStore = useGlobalStore()
-const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmenitiesTitle } = globalStore.websiteFindResponse.website
+const { bannerImage, featuredAmenitiesImage } = globalStore.websiteFindResponse.website
 
 </script>
 <template>
@@ -33,9 +33,13 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 				<h3>
 					Experience Comfort, Embrace Elegance
 				</h3>
+<<<<<<< HEAD
 
+=======
+				<span class="text-xs md:text-sm font-light">Stay with Rhactus House in
+					Alexandria.</span>
+>>>>>>> 9bd2fafb934e91095492b65e03622fcbdefb1f47
 			</div>
-
 		</div>
 	</Banner>
 	<div id="amenities" class="py-8 darker">
@@ -48,30 +52,17 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 	<AppSection id="rooms" title="Room Types">
 		<RoomTypes></RoomTypes>
 	</AppSection>
-	<Banner class="amenities-banner" :bannerImage="featuredAmenitiesImage!">
-		<div class="wrapper">
-			<div class="text-white w-full px-4">
-				<h2>{{ featuredAmenitiesTitle }}
-					<br>
-					<p class="font-light">{{ featuredAmenitiesText }}</p>
-				</h2>
-
-			</div>
-		</div>
-		<div class="featured-amenities amenities px-3 mt-4">
-			<Amenity v-for="amenity in globalStore.featuredAmenities" :key="amenity.amenityId"
-				:amenity="amenity" />
-		</div>
-
+	<Banner class="amenities-banner"  :bannerImage="featuredAmenitiesImage!">
+		<FeaturedAmenities />
 	</Banner>
 	<AppSection id="location" title="Our Location">
-		<Map class="scale w-full animate-on-scroll"></Map>
+		<Map class="scale w-full animate-on-scroll" />
 	</AppSection>
 	<AppSection id="contact" dark title="Get In Touch">
 		<Contact />
 	</AppSection>
 	<AppSection id="discover_more" title="Discover More About Rhactus">
-		<Discover></Discover>
+		<Discover />
 	</AppSection>
 	<AppFooter />
 </template>
@@ -85,8 +76,7 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 	padding: var(--p-larg-gap);
 	height: 500px !important;
 	background-size: cover;
-
-	@media (max-width:400px) {
+	@media (max-width:400px){
 		height: 600px !important;
 	}
 }
@@ -108,11 +98,4 @@ const { bannerImage, featuredAmenitiesText, featuredAmenitiesImage, featuredAmen
 	}
 }
 
-@media screen and (max-width : 400px) {
-	.featured-amenities {}
-
-	.featured-amenities .amenity {
-		height: 140px;
-	}
-}
 </style>
