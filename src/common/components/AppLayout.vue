@@ -29,7 +29,7 @@ const toggleMenu = () => {
 				<AppNav class="show-desktop" />
 
 				<div class="icons">
-					<app-icon icon="moon" :click="globalStore.toggleDarkMode"></app-icon>
+					<!-- <app-icon icon="moon" :click="globalStore.toggleDarkMode"></app-icon> -->
 
 					<app-icon icon="menu" :click="toggleMenu" class="hide-desktop"></app-icon>
 				</div>

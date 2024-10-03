@@ -17,7 +17,7 @@ const { addressLine } = globalStore.websiteFindResponse.property
 						<p v-t="footerParagraph" class="mt-6" />
 					</div>
 					<div class="nav">
-						<h3 v-t="'comppany'" class="mb-4" />
+						<h3 v-t="'Rhactus House'" class="mb-4" />
 						<AppNav class="flex-column" />
 					</div>
 					<div class="contact">

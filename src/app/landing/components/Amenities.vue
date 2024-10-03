@@ -38,12 +38,12 @@ const showLess = () => {
 
 <template>
     <div ref="amenitiesParentContainer">
-        <div v-show="showAll" class="desktop-wrapper fadeindown animation-duration-300">
+        <div v-show="true" class="desktop-wrapper fadeindown animation-duration-300">
             <div ref="amenitiesContainer" class="flex justify-content-center flex-wrap gap-3 mb-3 px-1 md:px-3">
                 <Amenity class="w-10rem md:w-12rem" v-for="amenity in allAmenities" :key="amenity.amenityId" :amenity="amenity" />
             </div>
         </div>
-        <div v-show="!showAll" class="fadein animation-duration-300">
+        <!-- <div v-show="!showAll" class="fadein animation-duration-300">
             <div class="am-container">
                 <div class="am-scrolling amenities_wrapper">
                     <Amenity v-for="amenity in firstHalf" :key="amenity.amenityId" :amenity="amenity" />
@@ -54,12 +54,12 @@ const showLess = () => {
                     <Amenity class="amenity" v-for="amenity in secondHalf" :key="amenity.amenityId" :amenity="amenity" />
                 </div>
             </div>
-        </div>
-        <div class="wrapper">
+        </div> -->
+        <!-- <div class="wrapper">
             <Button severity="contrast" class="flex lg:hidden px-4" v-if="!showAll" @click="showAll = true"
                 :label="`Show All ${allAmenities.length} Amenities`"></Button>
             <Button severity="contrast" class="flex lg:hidden" outlined v-else @click="showLess" :label="`Show Less`"></Button>
-        </div>
+        </div> -->
     </div>
 </template>
 <style >

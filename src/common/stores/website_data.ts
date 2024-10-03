@@ -2,11 +2,12 @@ import { WebsiteData } from "../types/types"
 
 const data: WebsiteData = {
     logo: 'properties/rhacus-logo.webp',
-    email: 'info@rhactushotel.com',
+    email: 'stay@rhactushotel.com',
     socialLinks: {
         facebook: 'https://www.facebook.com/profile.php?id=61565334736199',
         instagram: 'https://www.instagram.com/rhactushousesanstefano',
-        tripadvisor: 'https://www.linkedin.com/company/rhactushousesanstefano/'
+        tripadvisor: 'https://www.linkedin.com/company/rhactushousesanstefano/',
+        linkedin : 'https://www.linkedin.com/company/rhactushousesanstefano/'
     },
     bannerImage: "properties/rha-16.webp",
     featuredAmenitiesImage: "properties/rha-1.webp",
@@ -22,7 +23,7 @@ In addition to hotels, we have expanded into serviced apartments with locations 
         images: ['properties/rha-16.webp', 'properties/rha-1.webp']
     },
     bannerVideo: '/rha-video.webm',
-    bannerHeadline: 'Live the Stay, Love the Location',
+    bannerHeadline: 'Live the Stay, Love the Location at Rhactus House San Stefano',
     bannerText: 'Discover a world where comfort meets elegance. At Rhactus San Hotel, we offer you  unforgettable experience with luxurious rooms, stunning views, and service   Whether you\'re here for relaxation or adventure, we ensure that every moment  your stay is pure bliss.',
     sliderSlogan: 'Rhactus San Stefano – Where Luxury Meets the Mediterranean.',
     bannerSlogan: 'Experience Comfort, Embrace Elegance',
