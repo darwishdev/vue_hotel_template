@@ -23,7 +23,7 @@ const { addressLine } = globalStore.websiteFindResponse.property
 					<div class="contact">
 						<h3 v-t="'contacts'" class="mb-4" />
 						<p>
-							<span v-t="'phone'"></span>: {{ phone }}
+							<span v-t="'phone'"></span>: <a class="underline" :href="`tel:${phone}`">{{ phone }}</a> 
 						</p>
 						<p>
 							<span v-t="'email'"></span>: {{ email }}

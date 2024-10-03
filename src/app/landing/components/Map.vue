@@ -5,13 +5,22 @@ const baseUrl = import.meta.env.VITE_MAP_BASE_URL
 </script>
 
 <template>
-    <iframe :src="`${baseUrl}${globalStore.websiteFindResponse.property.iframeUrl}`" height="480" style="border:0;"
-        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <a target="_blank" :href="globalStore.websiteFindResponse.property.locationUrl">
+        <img src="/map.png" class="map-img" alt="Hotel Map Location" width="100%">
+    </a>
+    <!-- <iframe :src="`${baseUrl}${globalStore.websiteFindResponse.property.iframeUrl}`" height="480" style="border:0;"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 </template>
 
 <style>
 .my-app-dark iframe {
     filter: invert(90%)
+}
+
+.map-img{
+    cursor: pointer;
+    animation: fade-up;
+    animation-timeline: view();
 }
 
 iframe {
