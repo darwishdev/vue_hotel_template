@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import Button from 'primevue/button';
+import { useGlobalStore } from '../stores/global';
 const emits = defineEmits(['clicked'])
+const globalStore = useGlobalStore()
+const { facebook, instagram, linkedin } = globalStore.websiteFindResponse.website.socialLinks
 const items = [
     {
-        label: 'about',
+        label: 'About Us',
         to: '#about',
         icon: 'pi pi-align-left'
     },
@@ -49,8 +52,9 @@ function scrollToSection(sectionId: string) {
                 icon-class="pr-3 text-2xl" v-for="(item, index) in items" :key="index" :label="$t(item.label)" plain
                 text />
         </nav>
-        <i class="text-4xl mx-2 mt-7 pi pi-facebook"></i>
-        <i class="text-4xl mx-2 mt-7 pi pi-instagram"></i>
+        <a target="_blank" :href="facebook"><i class="text-4xl mx-2 mt-7 pi pi-facebook"></i></a>
+        <a target="_blank" :href="instagram"><i class="text-4xl mx-2 mt-7 pi pi-instagram"></i></a>
+        <a target="_blank" :href="linkedin"><i class="text-4xl mx-2 mt-7 pi pi-linkedin"></i></a>
     </div>
 </template>
 

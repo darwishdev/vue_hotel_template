@@ -40,7 +40,7 @@ export type WebsiteData = {
     facebook?: string
     instagram?: string
     tripadvisor?: string
-    twitter?: string
+    linkedin?: string
   }
   bannerVideo?: string
   discoverImages?: string[]

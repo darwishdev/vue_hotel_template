@@ -3,6 +3,8 @@ import AppNav from './AppNav.vue';
 import { useGlobalStore } from '../stores/global';
 const globalStore = useGlobalStore()
 const { logo, email, phone, footerParagraph } = globalStore.websiteFindResponse.website
+
+const { facebook, instagram, linkedin } = globalStore.websiteFindResponse.website.socialLinks
 const { addressLine } = globalStore.websiteFindResponse.property
 </script>
 <template>
@@ -30,6 +32,12 @@ const { addressLine } = globalStore.websiteFindResponse.property
 							<span v-t="'location'"></span>: {{
 								addressLine }}
 						</p>
+						<a target="_blank" :href="facebook"><i
+								class="text-4xl mx-2 mt-7 pi pi-facebook"></i></a>
+						<a target="_blank" :href="instagram"><i
+								class="text-4xl mx-2 mt-7 pi pi-instagram"></i></a>
+						<a target="_blank" :href="linkedin"><i
+								class="text-4xl mx-2 mt-7 pi pi-linkedin"></i></a>
 					</div>
 
 				</div>

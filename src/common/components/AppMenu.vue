@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const items = [
 	{
-		label: 'about',
+		label: 'About Us',
 		to: '#about'
 	},
 	{

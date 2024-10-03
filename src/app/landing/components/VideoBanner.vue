@@ -5,7 +5,7 @@ import { onMounted, ref } from 'vue';
 import Waves from './animations/Waves.vue';
 const globalStore = useGlobalStore()
 const videoElementRef = ref()
-const { bannerVideo, bannerHeadline, bannerText, bannerSlogan } = globalStore.websiteFindResponse.website
+const { bannerVideo, bannerHeadline } = globalStore.websiteFindResponse.website
 onMounted(() => {
     setTimeout(() => {
         videoElementRef.value.play()
@@ -27,7 +27,7 @@ onMounted(() => {
                         <i class="pi pi-phone" />
                         {{ $t('contact') }}
                     </a>
-                    <a class="flex justify-content-center align-items-center w-10rem text-white app-btn outline"
+                    <a class="flex justify-content-center align-items-center w-10rem text-white app-btn primary"
                         href="#rooms">
                         <i class="pi pi-key" />
                         {{ $t('units') }}</a>
@@ -43,10 +43,10 @@ onMounted(() => {
 
 
 </template>
-<style  >
-
-@supports not (animation-timeline: view()){
+<style>
+@supports not (animation-timeline: view()) {
     .v-scale.animating {
+        animation: v-scaling 4s ease-in-out .3s;
         -webkit-animation: v-scaling 4s ease-in-out .3s;
     }
 }
@@ -55,7 +55,7 @@ onMounted(() => {
     height: 80vh;
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: center;
     padding: 4rem 0rem;
     min-height: 20rem;
     position: relative;

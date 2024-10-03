@@ -17,7 +17,7 @@ const { bannerImage, featuredAmenitiesImage } = globalStore.websiteFindResponse.
 </script>
 <template>
 	<VideoBanner />
-	<AppSection id="about" :title="`About`">
+	<AppSection id="about" title="About Us">
 
 		<Slider></Slider>
 		<div class="separator my-5"></div>
@@ -28,17 +28,11 @@ const { bannerImage, featuredAmenitiesImage } = globalStore.websiteFindResponse.
 		<div class="container">
 			<div class="text-white px-2 w-full">
 				<h1 class="text-white">
-					Experience Comfort, <br /> Embrace Elegance
+					Live the Stay, Love the Location
 				</h1>
 				<h3>
-					Experience Comfort, Embrace Elegance
+					Enjoy your stay at Rhactus House San Stefano
 				</h3>
-<<<<<<< HEAD
-
-=======
-				<span class="text-xs md:text-sm font-light">Stay with Rhactus House in
-					Alexandria.</span>
->>>>>>> 9bd2fafb934e91095492b65e03622fcbdefb1f47
 			</div>
 		</div>
 	</Banner>
@@ -49,19 +43,19 @@ const { bannerImage, featuredAmenitiesImage } = globalStore.websiteFindResponse.
 		</div>
 		<Amenities></Amenities>
 	</div>
-	<AppSection id="rooms" title="Room Types">
+	<AppSection id="rooms" title="Apartment Types">
 		<RoomTypes></RoomTypes>
 	</AppSection>
-	<Banner class="amenities-banner"  :bannerImage="featuredAmenitiesImage!">
+	<Banner class="amenities-banner" :bannerImage="featuredAmenitiesImage!">
 		<FeaturedAmenities />
 	</Banner>
 	<AppSection id="location" title="Our Location">
 		<Map class="scale w-full animate-on-scroll" />
 	</AppSection>
-	<AppSection id="contact" dark title="Get In Touch">
+	<AppSection id="contact" dark title="Contact Us">
 		<Contact />
 	</AppSection>
-	<AppSection id="discover_more" title="Discover More About Rhactus">
+	<AppSection id="discover_more" title="Discover More About Rhactus Hotels">
 		<Discover />
 	</AppSection>
 	<AppFooter />
@@ -76,7 +70,8 @@ const { bannerImage, featuredAmenitiesImage } = globalStore.websiteFindResponse.
 	padding: var(--p-larg-gap);
 	height: 500px !important;
 	background-size: cover;
-	@media (max-width:400px){
+
+	@media (max-width:400px) {
 		height: 600px !important;
 	}
 }
@@ -97,5 +92,4 @@ const { bannerImage, featuredAmenitiesImage } = globalStore.websiteFindResponse.
 		grid-auto-flow: row;
 	}
 }
-
 </style>

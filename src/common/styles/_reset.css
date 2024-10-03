@@ -96,3 +96,8 @@ fieldset {
 .p-overlay-mask {
     direction: ltr;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--p-primary-color)
+}
