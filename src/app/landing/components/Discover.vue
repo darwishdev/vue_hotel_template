@@ -14,7 +14,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <article ref="discoverContainer" class="discover-container grid gap-2">
+    <article ref="discoverContainer" class="discover-container grid align-items-center gap-2">
         <div class="col-12 md:col-6 text-justify">
             <p v-html="article" class="mb-3 text-left"></p>
         </div>
