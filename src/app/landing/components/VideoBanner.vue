@@ -17,10 +17,10 @@ onMounted(() => {
 <template>
     <section class="video-banner ">
         <div class="wrapper">
-            <div class="banner-content">
+            <div class="banner-content pt-5">
                 <h1 v-html="bannerHeadline"></h1>
                 <!--     <h4> {{ bannerSlogan }}</h4>
-<p>{{ bannerText }}</p> -->
+                <p>{{ bannerText }}</p> -->
                 <div class="actions">
 
                     <!-- <a class="flex justify-content-center align-items-center w-10rem app-btn primary" href="#contact">

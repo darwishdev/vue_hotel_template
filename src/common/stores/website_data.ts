@@ -23,7 +23,7 @@ In addition to hotels, we have expanded into serviced apartments with locations 
         images: ['properties/rha-16.webp', 'properties/rha-1.webp']
     },
     bannerVideo: '/rha-video.webm',
-    bannerHeadline: 'Live the Stay, Love the Location at Rhactus House San Stefano',
+    bannerHeadline: 'Live the Stay, Love the Location <br /> at Rhactus House San Stefano',
     bannerText: 'Enjoy your stay at Rhactus House San Stefano',
     sliderSlogan: 'Rhactus San Stefano – Where Luxury Meets the Mediterranean.',
     bannerSlogan: 'Experience Comfort, Embrace Elegance',

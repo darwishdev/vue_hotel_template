@@ -22,10 +22,8 @@ const props = defineProps<AmenityPartialProps>()
 	gap: var(--p-small-gap);
 	border-radius: var(--p-border-radius-lg);
 	text-align: center;
-	width: max-content;
-	height: 150px;
-	width: 100%;
-
+	min-height: 150px;
+	width: 170px;
 	span {
 		line-height: .2;
 	}

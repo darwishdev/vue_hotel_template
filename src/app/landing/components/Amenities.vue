@@ -24,7 +24,7 @@ onMounted(() => {
 
 <template>
     <div ref="amenitiesParentContainer">
-        <div class="amenities_wrapper">
+        <div class="flex flex-wrap gap-1 md:gap-4 align-items-center justify-content-center">
             <Amenity v-for="amenity in allAmenities" :key="amenity.amenityId" :amenity="amenity" />
         </div>
     </div>
@@ -36,27 +36,9 @@ onMounted(() => {
 }
 
 .amenities_wrapper {
-    display: grid;
-    gap: var(--p-small-gap);
-    grid-auto-flow: column;
-
-    @media (max-width:1025px) {
-        grid-template-columns: repeat(4, 1fr);
-        grid-auto-flow: row;
-    }
-
-    @media (max-width:725px) {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media (max-width:500px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: 350px) {
-        grid-template-columns: 1fr;
-    }
-
-
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 </style>

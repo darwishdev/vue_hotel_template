@@ -7,9 +7,17 @@
     margin-inline: auto;
 }
 
+
+
 @media screen and (max-width : 580px) {
     :root {
         --p-content-inline-spacing: 7rem !important;
+    }
+}
+
+@media screen and (max-width : 400px) {
+    :root {
+        --p-content-inline-spacing: 3rem !important;
     }
 }
 

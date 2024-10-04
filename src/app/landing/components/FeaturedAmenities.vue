@@ -14,19 +14,11 @@ const { featuredAmenitiesText, featuredAmenitiesTitle } = globalStore.websiteFin
 
     </div>
 
-    <div class="amenities_wrapper">
+    <div class="featured-amenities amenities_wrapper gap-1 md:gap-3">
         <Amenity v-for="amenity in globalStore.featuredAmenities" :key="amenity.amenityId" :amenity="amenity" />
     </div>
 </template>
 
 <style>
-@media screen and (max-width : 400px) {
-    .featured-amenities .amenity {
-        height: 140px;
 
-        @media (max-width: 350px) {
-            height: 160px;
-        }
-    }
-}
 </style>

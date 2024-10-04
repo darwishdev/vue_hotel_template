@@ -10,11 +10,11 @@ const { addressLine } = globalStore.websiteFindResponse.property
 <template>
 	<footer class="app-footer darker">
 		<div class="wrapper">
-			<div class="show-desktop mb-4">
-				<div class="grid">
+			<div class="show-desktop mb-6">
+				<div class="grid align-items-end">
 					<div class="logo">
-						<app-image :src="logo" :size="100" />
-						<p v-t="footerParagraph" class="mt-6" />
+						<app-image :src="logo" :size="70" />
+						<p v-t="footerParagraph" class="mt-4" />
 					</div>
 					<div class="nav">
 						<h3 v-t="'Rhactus House'" class="mb-4" />
@@ -23,7 +23,7 @@ const { addressLine } = globalStore.websiteFindResponse.property
 					<div class="contact">
 						<h3 v-t="'contacts'" class="mb-4" />
 						<p>
-							<span v-t="'phone'"></span>: <a class="underline" :href="`tel:${phone}`">{{ phone }}</a> 
+							<span v-t="'phone'"></span>: <a :href="`tel:${phone}`">{{ phone }}</a> 
 						</p>
 						<p>
 							<span v-t="'email'"></span>: {{ email }}
