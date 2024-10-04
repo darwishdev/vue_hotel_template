@@ -13,14 +13,15 @@ onMounted(() => {
         observer.observe(bannerRef.value)
     }, 100);
 })
-const opacity = ref(props.overlayOpacity && props.overlayOpacity > 0 && props.overlayOpacity <= 1 ? props.overlayOpacity : 0.4)
 const bannerImageSrc = getAssetPath(props.bannerImage || " ")
 </script>
 
 <template>
 
     <div ref="bannerRef" class="  banner" :style="`background-image: url(${bannerImageSrc});`">
-        <div class="banner-overlay" :style="`background-color: rgba(0, 0, 0, ${opacity});`">
+        <div class="wrapper">
+
+
             <slot></slot>
         </div>
     </div>
@@ -31,7 +32,7 @@ const bannerImageSrc = getAssetPath(props.bannerImage || " ")
 .banner {
     position: relative;
     width: 100%;
-    height: 400px;
+    padding-block: 3rem;
     overflow: hidden;
     border-radius: 5px;
     background-repeat: no-repeat;

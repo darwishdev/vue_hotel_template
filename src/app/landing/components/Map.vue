@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import { useGlobalStore } from '@/common/stores/global';
 const globalStore = useGlobalStore()
-const baseUrl = import.meta.env.VITE_MAP_BASE_URL
 </script>
 
 <template>
     <a target="_blank" :href="globalStore.websiteFindResponse.property.locationUrl">
         <img src="/map.png" class="map-img" alt="Hotel Map Location" width="100%">
     </a>
-    <!-- <iframe :src="`${baseUrl}${globalStore.websiteFindResponse.property.iframeUrl}`" height="480" style="border:0;"
-        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 </template>
 
 <style>
@@ -17,7 +14,7 @@ const baseUrl = import.meta.env.VITE_MAP_BASE_URL
     filter: invert(90%)
 }
 
-.map-img{
+.map-img {
     cursor: pointer;
     animation: fade-up;
     animation-timeline: view();

@@ -7,6 +7,8 @@ const props = defineProps<AmenityPartialProps>()
 	<div class="amenity glass">
 		<app-icon :icon="props.amenity.amenityIcon"></app-icon>
 		<h4 class="font-light">{{ props.amenity.amenityName }}</h4>
+		<span class="font-light" v-if="props.amenity.amenityValue != 'true'">{{ props.amenity.amenityValue
+			}}</span>
 	</div>
 
 </template>
@@ -21,6 +23,11 @@ const props = defineProps<AmenityPartialProps>()
 	border-radius: var(--p-border-radius-lg);
 	text-align: center;
 	width: max-content;
-	height: 100px;
+	height: 150px;
+	width: 100%;
+
+	span {
+		line-height: .2;
+	}
 }
 </style>
