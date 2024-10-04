@@ -8,9 +8,9 @@
 }
 
 @media screen and (max-width : 580px) {
-    :root{
-        --p-content-inline-spacing : 7rem !important;
-    }   
+    :root {
+        --p-content-inline-spacing: 7rem !important;
+    }
 }
 
 @media (max-width : 1025px) {
@@ -40,11 +40,12 @@
     animation-timeline: scroll();
 }
 
-.app-icon svg{
+.app-icon svg {
     color: var(--p-text-color);
     fill: var(--p-text-color);
 }
-.app-icon svg path{
+
+.app-icon svg path {
     fill: var(--p-text-color);
 }
 
@@ -79,4 +80,11 @@
     height: 2px;
     background-color: rgba(0, 0, 0, 0.135);
     width: 75%;
+}
+
+.banner-text {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
