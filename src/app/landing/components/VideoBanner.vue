@@ -18,7 +18,7 @@ onMounted(() => {
     <section class="video-banner ">
         <div class="wrapper">
             <div class="banner-content">
-                <h1>{{ bannerHeadline }}</h1>
+                <h1 v-html="bannerHeadline"></h1>
                 <!--     <h4> {{ bannerSlogan }}</h4>
 <p>{{ bannerText }}</p> -->
                 <div class="actions">
