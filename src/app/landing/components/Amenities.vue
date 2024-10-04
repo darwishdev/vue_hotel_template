@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import autoAnimate from "@formkit/auto-animate"
 import { useGlobalStore } from '@/common/stores/global';
 import Amenity from "./partials/Amenity.vue";
 import { onMounted, ref } from 'vue';
 import observer from "@/common/utilites/animation";
 const globalStore = useGlobalStore()
-const amenitiesContainer = ref()
 const amenitiesParentContainer = ref()
 const showAll = ref(false)
 const allAmenities = ref(globalStore.normalAmenities)
@@ -14,9 +12,6 @@ onMounted(() => {
     if (innerWidth > 800) {
         showAll.value = true
     }
-    autoAnimate(amenitiesContainer.value, {
-        easing: 'ease-in-out'
-    })
     observer.observe(amenitiesParentContainer.value!)
 })
 
