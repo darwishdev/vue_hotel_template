@@ -28,7 +28,7 @@ onMounted(() => {
 <style>
 .discover-more-section span {
     display: flex;
-    height: 160px;
+    height: 200px;
 }
 
 .discover-more-section img {

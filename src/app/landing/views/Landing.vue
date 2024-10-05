@@ -27,7 +27,6 @@ const { bannerImage, featuredAmenitiesImage, bannerHeadline, bannerText } = glob
 	</AppSection>
 	<Banner class :bannerImage="bannerImage!">
 		<div class="text-white px-2 w-full banner-text">
-
 			<h1 class="text-white">Live the Stay, Love the Location
 			</h1>
 			<h3>
