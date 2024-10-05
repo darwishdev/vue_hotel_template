@@ -13,7 +13,7 @@ const { addressLine } = globalStore.websiteFindResponse.property
 			<div class="show-desktop mb-6">
 				<div class="grid align-items-end">
 					<div class="logo">
-						<app-image :src="logo" :size="70" />
+						<app-image :src="logo" :size="90" />
 						<p v-t="footerParagraph" class="mt-4" />
 					</div>
 					<div class="nav">
