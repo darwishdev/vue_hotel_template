@@ -12,7 +12,7 @@ import VideoBanner from '../components/VideoBanner.vue';
 import Discover from '../components/Discover.vue';
 import FeaturedAmenities from '../components/FeaturedAmenities.vue';
 const globalStore = useGlobalStore()
-const { bannerImage, featuredAmenitiesImage, bannerHeadline, bannerText } = globalStore.websiteFindResponse.website
+const { bannerImage, featuredAmenitiesImage, bannerText } = globalStore.websiteFindResponse.website
 
 </script>
 <template>

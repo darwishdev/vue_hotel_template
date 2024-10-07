@@ -20,8 +20,6 @@ const bannerImageSrc = getAssetPath(props.bannerImage || " ")
 
     <div ref="bannerRef" class="  banner" :style="`background-image: url(${bannerImageSrc});`">
         <div class="wrapper">
-
-
             <slot></slot>
         </div>
     </div>
@@ -40,37 +38,8 @@ const bannerImageSrc = getAssetPath(props.bannerImage || " ")
     background-position: center;
 }
 
-@supports not (animation-timeline: view()) {
-    .animating.bg-scale {
-        -webkit-animation: scale 1.5s ease-in-out;
-        background-size: 150%;
-    }
 
-    @media screen and (max-width : 500px) {
-        .animating.bg-scale {
-            -webkit-animation: mob-scale 1.5s ease-in-out;
-            background-size: 230%;
-        }
-    }
-}
 
-@supports (animation-timeline: view()) {
-    .banner {
-        background-size: cover;
-        animation: scale;
-        animation-timeline: view();
-        animation-range: exit -400px;
-    }
-
-    @media screen and (max-width : 500px) {
-        .banner {
-            background-size: cover;
-            animation: mob-scale;
-            animation-timeline: view();
-            animation-range: exit -400px;
-        }
-    }
-}
 
 
 .banner-image {

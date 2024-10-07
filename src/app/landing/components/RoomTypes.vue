@@ -47,8 +47,4 @@ const openReservableUnitFindDialog = (unit: PropertyFindFilteredReservableUnit) 
   </swiper>
 </template>
 
-<style>
-.p-image img {
-  max-height: 270px;
-}
-</style>
+<style></style>

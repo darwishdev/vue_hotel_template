@@ -13,7 +13,7 @@ const { addressLine } = globalStore.websiteFindResponse.property
 			<div class="show-desktop mb-6">
 				<div class="grid align-items-end">
 					<div class="logo">
-						<app-image :src="logo" :size="90" />
+						<app-image :src="logo" :size="200" />
 						<p v-t="footerParagraph" class="mt-4" />
 					</div>
 					<div class="nav">
@@ -23,13 +23,14 @@ const { addressLine } = globalStore.websiteFindResponse.property
 					<div class="contact">
 						<h3 v-t="'contacts'" class="mb-4" />
 						<p>
-							<span v-t="'phone'"></span>: <a :href="`tel:${phone}`">{{ phone }}</a> 
+							<span v-t="'phone'"></span>: <a :href="`tel:${phone}`">{{ phone
+								}}</a>
 						</p>
 						<p>
 							<span v-t="'email'"></span>: {{ email }}
 						</p>
-						<p>
-							<span v-t="'location'"></span>: {{
+						<p class="flex gap-1">
+							<span v-t="'location:'"></span> {{
 								addressLine }}
 						</p>
 						<a target="_blank" :href="facebook"><i
